@@ -4,21 +4,44 @@ class Game {
     this.frame = 0;
     this.state = 'play';
     this.then = 0;
-    this.loop();
+    this.ctx = this.getContext();
+    this.entities = [];
+    this.init();
   }
 
-  loop = () => {
-    const frameCap = window.performance.now() - this.then < this.limit;
+  getContext() {
+    const canvas = document.getElementById('game');
+    const ctx = canvas.getContext('2d');
+    return ctx;
+  }
 
-    if (this.state !== 'play') return;
+  loop(now) {
+    const frameCap = now - this.then < this.limit;
+    const isPlaying = this.state === 'play';
 
-    if (!frameCap) {
-      this.then = window.performance.now();
+    if (!frameCap && isPlaying) {
+      this.then = now;
 
-      console.count('frame');
+      this.ctx.clearRect(0, 0, 800, 600);
+
+      this.render();
+
+      // console.count('frame');
       this.frame++;
     }
 
-    requestAnimationFrame(this.loop);
-  };
+    requestAnimationFrame(this.loop.bind(this));
+  }
+
+  render() {
+    this.entities.forEach((entity) => {
+      // entity.x++;
+      // entity.y++;
+      entity.draw();
+    });
+  }
+
+  init() {
+    this.loop();
+  }
 }
