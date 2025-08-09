@@ -1,0 +1,13 @@
+@layer Base {
+  body {
+    font-family: monospace;
+    color: steelblue;
+    background-color: black;
+  }
+
+  canvas#game {
+    border: 2px outset grey;
+    margin: 10em auto 0;
+    display: block;
+  }
+}
