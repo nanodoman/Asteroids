@@ -1,6 +1,6 @@
 class Game {
   constructor() {
-    this.limit = 60;
+    this.limit = 0;
     this.frame = 0;
     this.state = 'play';
     this.then = 0;
@@ -24,6 +24,7 @@ class Game {
 
       this.ctx.clearRect(0, 0, 800, 600);
 
+      this.tests();
       this.render();
 
       // console.count('frame');
@@ -33,10 +34,20 @@ class Game {
     requestAnimationFrame(this.loop.bind(this));
   }
 
+  tests() {
+    this.entities.forEach((entity) => {
+      if (!(entity instanceof Ship)) return;
+
+      const vec = [Math.cos((entity.rotation * Math.PI) / 180), Math.sin((entity.rotation * Math.PI) / 180)];
+
+      entity.x += 1 * vec[0];
+      entity.y += 1 * vec[1];
+      entity.rotation++;
+    });
+  }
+
   render() {
     this.entities.forEach((entity) => {
-      // entity.x++;
-      // entity.y++;
       entity.draw();
     });
   }

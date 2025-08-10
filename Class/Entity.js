@@ -1,13 +1,14 @@
 class Entity {
-  constructor(x, y, r) {
+  constructor(x, y, radius, rotation = 0) {
     this.x = x;
     this.y = y;
-    this.r = r;
+    this.radius = radius;
+    this.rotation = rotation;
   }
 
   draw(ctx = GAME.ctx) {
     const obj = new Path2D();
-    obj.arc(this.x, this.y, this.r, 0, Math.PI * 4);
+    obj.arc(this.x, this.y, this.radius, 0, Math.PI * 4);
 
     ctx.beginPath();
     ctx.fillStyle = '#6666';
@@ -26,10 +27,10 @@ class Ship extends Entity {
   }
 
   draw(ctx = GAME.ctx) {
-    const obj = new Path2D('M0 -8 l 8 16 l -8 -4 l -8 4Z');
+    const obj = new Path2D('M8 0 L -8 8 L -4 0 L -8 -8Z');
     ctx.save();
     ctx.translate(this.x, this.y);
-    // ctx.rotate(Math.PI / 4);
+    ctx.rotate((this.rotation * Math.PI) / 180);
     ctx.stroke(obj);
     ctx.restore();
   }
