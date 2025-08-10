@@ -4,6 +4,8 @@ class Entity {
     this.y = y;
     this.radius = radius;
     this.rotation = rotation;
+    this.rotationSpeed = 1;
+    this.speed = 1;
   }
 
   draw(ctx = GAME.ctx) {
@@ -37,18 +39,24 @@ class Ship extends Entity {
 
   controlShip() {
     if (INPUT.hasKey('ArrowUp')) this.throttle();
-    if (INPUT.hasKey('ArrowLeft')) this.rotate('ccw');
+    if (INPUT.hasKey('ArrowLeft')) this.rotate(true);
     if (INPUT.hasKey('ArrowRight')) this.rotate();
   }
 
   throttle() {
-    const vec = [Math.cos((this.rotation * Math.PI) / 180), Math.sin((this.rotation * Math.PI) / 180)];
-    this.x += 1 * vec[0];
-    this.y += 1 * vec[1];
+    const angle = (this.rotation * Math.PI) / 180;
+    const dx = this.speed * Math.cos(angle);
+    const dy = this.speed * Math.sin(angle);
+
+    this.x += dx;
+    this.y += dy;
   }
 
-  rotate(direction = 'cw') {
-    const dir = direction === 'cw' ? 1 : -1;
-    this.rotation += dir;
+  rotate(reverse = false) {
+    if (Math.abs(this.rotation) > 180) {
+      this.rotation *= -1;
+    }
+
+    this.rotation += this.rotationSpeed * reverse ? -1 : 1;
   }
 }
