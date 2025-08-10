@@ -25,6 +25,7 @@ class Game {
       this.ctx.clearRect(0, 0, 800, 600);
 
       this.tests();
+      this.engine();
       this.render();
 
       // console.count('frame');
@@ -34,15 +35,12 @@ class Game {
     requestAnimationFrame(this.loop.bind(this));
   }
 
-  tests() {
+  tests() {}
+
+  engine() {
     this.entities.forEach((entity) => {
-      if (!(entity instanceof Ship)) return;
-
-      const vec = [Math.cos((entity.rotation * Math.PI) / 180), Math.sin((entity.rotation * Math.PI) / 180)];
-
-      entity.x += 1 * vec[0];
-      entity.y += 1 * vec[1];
-      entity.rotation++;
+      if (entity instanceof Ship) entity.controlShip();
+      entity.draw();
     });
   }
 

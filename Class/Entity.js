@@ -34,4 +34,21 @@ class Ship extends Entity {
     ctx.stroke(obj);
     ctx.restore();
   }
+
+  controlShip() {
+    if (INPUT.hasKey('ArrowUp')) this.throttle();
+    if (INPUT.hasKey('ArrowLeft')) this.rotate('ccw');
+    if (INPUT.hasKey('ArrowRight')) this.rotate();
+  }
+
+  throttle() {
+    const vec = [Math.cos((this.rotation * Math.PI) / 180), Math.sin((this.rotation * Math.PI) / 180)];
+    this.x += 1 * vec[0];
+    this.y += 1 * vec[1];
+  }
+
+  rotate(direction = 'cw') {
+    const dir = direction === 'cw' ? 1 : -1;
+    this.rotation += dir;
+  }
 }
