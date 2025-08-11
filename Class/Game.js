@@ -24,9 +24,15 @@ class Game {
 
       this.ctx.clearRect(0, 0, 800, 600);
 
-      this.tests();
-      this.engine();
-      this.render();
+      // this.tick();
+
+      this.entities.forEach((entity, index) => {
+        entity.tick();
+        entity.draw();
+        if (entity?.ttl <= 0) {
+          this.entities.splice(index, 1);
+        }
+      });
 
       // console.count('frame');
       this.frame++;
@@ -35,20 +41,7 @@ class Game {
     requestAnimationFrame(this.loop.bind(this));
   }
 
-  tests() {}
-
-  engine() {
-    this.entities.forEach((entity) => {
-      if (entity instanceof Ship) entity.controlShip();
-      entity.draw();
-    });
-  }
-
-  render() {
-    this.entities.forEach((entity) => {
-      entity.draw();
-    });
-  }
+  tick() {}
 
   init() {
     this.loop();
