@@ -88,7 +88,8 @@ class Ship extends Entity {
 
   rotate(reverse = false) {
     if (Math.abs(this.rotation) > 180) {
-      this.rotation *= -1;
+      const sign = Math.sign(this.rotation) * -1;
+      this.rotation = 180 * sign;
     }
 
     this.rotation += this.rotationSpeed * reverse ? -1 : 1;
