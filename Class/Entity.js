@@ -46,7 +46,42 @@ class Rocket extends Entity {
   }
 }
 
-class Asteroid extends Entity {}
+class Asteroid extends Entity {
+  constructor(x, y, radius) {
+    super(x, y, radius);
+
+    this.angularMomentum = 2 * (Math.random() - 0.5 >= 0 ? 1 : -1);
+    // this.dx = 0.5;
+    // this.dy = 0.5;
+  }
+
+  tick() {
+    this.rotation += this.angularMomentum;
+    // this.x += this.dx;
+    // this.y += this.dy;
+  }
+
+  draw(ctx = GAME.ctx) {
+    // const model = new Path2D('M28 18L 24 24L 19 29L 10 26L 4 27L 0 20L 4 10L 16 2L 23 7L 30 9Z');
+    const model = new Path2D(`
+      M 12 2 
+      L 8 8
+      L 3 13
+      L -6 10
+      L -12 11
+      L -16 4
+      L -12 -6
+      L 0 -14
+      L 7 -9
+      L 14 -7
+      Z`);
+    ctx.save();
+    ctx.translate(this.x, this.y);
+    ctx.rotate(this.angle);
+    ctx.stroke(model);
+    ctx.restore();
+  }
+}
 
 class Ship extends Entity {
   constructor(x, y, radius) {
@@ -63,11 +98,17 @@ class Ship extends Entity {
   }
 
   draw(ctx = GAME.ctx) {
-    const obj = new Path2D('M8 0 L -8 8 L -4 0 L -8 -8Z');
+    // const obj = new Path2D('M8 0 L -8 8 L -4 0 L -8 -8Z');
+    const model = new Path2D(`
+      M ${this.radius} 0
+      L ${-this.radius} ${this.radius}
+      L ${this.radius * -0.5} 0
+      L ${-this.radius} ${-this.radius}
+      Z`);
     ctx.save();
     ctx.translate(this.x, this.y);
     ctx.rotate(this.angle);
-    ctx.stroke(obj);
+    ctx.stroke(model);
     ctx.restore();
   }
 
