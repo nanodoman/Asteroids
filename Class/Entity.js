@@ -31,7 +31,7 @@ class Rocket extends Entity {
   constructor(x, y, rotation) {
     super(x, y, 4, rotation);
 
-    this.speed = 5;
+    super.speed = 5;
     this.ttl = 200;
   }
 
@@ -86,6 +86,8 @@ class Asteroid extends Entity {
 class Ship extends Entity {
   constructor(x, y, radius) {
     super(x, y, radius);
+    super.rotationSpeed = 2;
+    super.speed = 2;
 
     this.weaponReload = 0;
   }
@@ -133,7 +135,7 @@ class Ship extends Entity {
       this.rotation = 180 * sign;
     }
 
-    this.rotation += this.rotationSpeed * reverse ? -1 : 1;
+    this.rotation += this.rotationSpeed * (reverse ? -1 : 1);
   }
 
   shoot() {
