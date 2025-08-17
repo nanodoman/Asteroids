@@ -5,7 +5,7 @@ class Game {
     this.limit = 0;
     this.frame = 0;
     this.state = 'play';
-    this.debug = true;
+    this.debug = false;
     this.then = 0;
     this.ctx = this.getContext();
     this.entities = [];
@@ -47,6 +47,12 @@ class Game {
         if (entity?.ttl <= 0) {
           this.entities.splice(index, 1);
         }
+        /* TEMP */
+        this.entities.forEach((entity2, index2) => {
+          if (index !== index2) {
+            entity.collidesWith(entity2);
+          }
+        });
       });
 
       // console.count('frame');

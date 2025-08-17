@@ -12,6 +12,7 @@ class Entity {
       M ${-this.radius} 0
       A ${this.radius} ${this.radius} 0 0 1 ${this.radius} 0
     `);
+    this.isColliding = false;
   }
 
   get angle() {
@@ -25,7 +26,7 @@ class Entity {
     if (GAME.debug === true) {
       const hitbox = new Path2D();
       hitbox.arc(this.x, this.y, this.radius, 0, Math.PI * 4);
-      ctx.strokeStyle = '#48b';
+      ctx.strokeStyle = this.isColliding ? '#f7b' : '#48b';
       ctx.stroke(hitbox);
     }
     ctx.translate(this.x, this.y);
@@ -35,6 +36,11 @@ class Entity {
     ctx.fillStyle = '#6666';
     ctx.fill(this.model);
     ctx.restore();
+  }
+
+  collidesWith(other) {
+    const distance = Math.hypot(other.x - this.x, other.y - this.y);
+    this.isColliding = distance < other.radius + this.radius;
   }
 }
 
