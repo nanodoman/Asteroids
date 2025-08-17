@@ -21,12 +21,18 @@ class Entity {
   tick() {}
 
   draw(ctx = GAME.ctx) {
-    ctx.fillStyle = '#6666';
-    ctx.strokeStyle = '#fff';
     ctx.save();
+    if (GAME.debug === true) {
+      const hitbox = new Path2D();
+      hitbox.arc(this.x, this.y, this.radius, 0, Math.PI * 4);
+      ctx.strokeStyle = '#48b';
+      ctx.stroke(hitbox);
+    }
     ctx.translate(this.x, this.y);
     ctx.rotate(this.angle);
+    ctx.strokeStyle = '#fff';
     ctx.stroke(this.model);
+    ctx.fillStyle = '#6666';
     ctx.fill(this.model);
     ctx.restore();
   }

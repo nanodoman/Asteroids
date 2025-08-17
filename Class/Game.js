@@ -5,6 +5,7 @@ class Game {
     this.limit = 0;
     this.frame = 0;
     this.state = 'play';
+    this.debug = true;
     this.then = 0;
     this.ctx = this.getContext();
     this.entities = [];
