@@ -16,8 +16,18 @@ class Input {
     return this.#keys.has(key);
   }
 
-  addKey({ code }) {
-    this.#keys.add(code);
+  addKey(e) {
+    if (e.repeat) return;
+    this.#keys.add(e.code);
+
+    /* TEMP */
+    switch (e.code) {
+      case 'F2':
+        GAME ? (GAME.debug = !GAME.debug) : undefined;
+        break;
+      default:
+        break;
+    }
   }
 
   deleteKey({ code }) {
