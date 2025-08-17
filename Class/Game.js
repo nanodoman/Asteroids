@@ -29,6 +29,18 @@ class Game {
       // this.tick();
 
       this.entities.forEach((entity, index) => {
+        if (entity.x >= this.width * 0.5) {
+          entity.x -= this.width;
+        }
+        if (entity.x < this.width * -0.5) {
+          entity.x += this.width;
+        }
+        if (entity.y >= this.height * 0.5) {
+          entity.y -= this.height;
+        }
+        if (entity.y < this.height * -0.5) {
+          entity.y += this.height;
+        }
         entity.tick();
         entity.draw();
         if (entity?.ttl <= 0) {
