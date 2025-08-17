@@ -50,15 +50,15 @@ class Asteroid extends Entity {
   constructor(x, y, radius) {
     super(x, y, radius);
 
-    this.angularMomentum = 2 * (Math.random() - 0.5 >= 0 ? 1 : -1);
-    // this.dx = 0.5;
-    // this.dy = 0.5;
+    super.rotationSpeed = Math.random() - 0.5 * 2;
+    this.dx = (Math.random() - 0.5) * 4;
+    this.dy = (Math.random() - 0.5) * 4;
   }
 
   tick() {
-    this.rotation += this.angularMomentum;
-    // this.x += this.dx;
-    // this.y += this.dy;
+    this.rotation += this.rotationSpeed;
+    this.x += this.dx;
+    this.y += this.dy;
   }
 
   draw(ctx = GAME.ctx) {
