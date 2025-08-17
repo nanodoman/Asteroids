@@ -1,5 +1,7 @@
 class Game {
   constructor() {
+    this.width = 800;
+    this.height = 600;
     this.limit = 0;
     this.frame = 0;
     this.state = 'play';
@@ -22,7 +24,7 @@ class Game {
     if (!frameCap && isPlaying) {
       this.then = now;
 
-      this.ctx.clearRect(0, 0, 800, 600);
+      this.ctx.clearRect(this.width * -0.5, this.height * -0.5, this.width, this.height);
 
       // this.tick();
 
@@ -44,6 +46,7 @@ class Game {
   tick() {}
 
   init() {
+    this.ctx.transform(1, 0, 0, 1, this.width * 0.5, this.height * 0.5);
     this.loop();
   }
 }
