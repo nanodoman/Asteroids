@@ -1,1 +1,2 @@
 - debugger widow (display states)
+- fix rocket glitch before disapear
