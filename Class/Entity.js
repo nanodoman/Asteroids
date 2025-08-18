@@ -39,8 +39,8 @@ class Entity {
   }
 
   collidesWith(other) {
-    const distance = Math.hypot(other.x - this.x, other.y - this.y);
-    this.isColliding = distance < other.radius + this.radius;
+    const distance = Math.hypot(this.x - other.x, this.y - other.y);
+    this.isColliding = distance < this.radius + other.radius;
   }
 }
 
@@ -142,6 +142,6 @@ class Ship extends Entity {
     if (this.weaponReload !== 0) return;
     const rocket = new Rocket(this.x, this.y, this.rotation);
     this.weaponReload = 25;
-    GAME.entities.push(rocket);
+    GAME.addEntity(rocket);
   }
 }
