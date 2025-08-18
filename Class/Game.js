@@ -6,6 +6,7 @@ class Game {
     this.frame = 0;
     this.state = 'play';
     this.debug = false;
+    this.spawnTreshold = 100;
     this.then = 0;
     this.ctx = this.getContext();
     this.entities = new Map();
@@ -27,6 +28,8 @@ class Game {
       this.frame++;
 
       this.ctx.clearRect(this.width * -0.5, this.height * -0.5, this.width, this.height);
+
+      this.spawnAsteroid();
 
       this.entities.forEach((entity, id) => {
         entity.tick();
@@ -57,16 +60,22 @@ class Game {
   init() {
     this.ctx.transform(1, 0, 0, 1, this.width * 0.5, this.height * 0.5);
     this.loop();
+    this.respawn();
   }
 
   getUId() {
-    let id = Math.random().toString().substring(2);
+    let id;
 
-    while (this.entities.has(id)) {
+    do {
       id = Math.random().toString().substring(2);
-    }
+    } while (this.entities.has(id));
 
     return id;
+  }
+
+  respawn() {
+    if (this.entities.values().some((entity) => entity instanceof Ship)) return;
+    this.addEntity(new Ship(0, 0, 10));
   }
 
   borderPassCheck(entity) {
@@ -110,5 +119,13 @@ class Game {
         this.removeEntity(otherId);
       }
     });
+  }
+
+  spawnAsteroid() {
+    if (this.frame % this.spawnTreshold !== 0) return;
+
+    const x = this.width * 0.5 * (Math.random() - 0.5 >= 0 ? 1 : -1);
+    const y = this.height * 0.5 * (Math.random() - 0.5 >= 0 ? 1 : -1);
+    this.addEntity(new Asteroid(x, y, 16));
   }
 }

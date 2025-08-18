@@ -25,6 +25,9 @@ class Input {
       case 'F2':
         GAME ? (GAME.debug = !GAME.debug) : undefined;
         break;
+      case 'Enter':
+        GAME.respawn();
+        break;
       default:
         break;
     }

@@ -5,9 +5,15 @@
     background-color: black;
   }
 
+  kbd {
+    border: 1px solid currentColor;
+    border-radius: 0.2em;
+    padding: 0.1em 0.2em;
+  }
+
   canvas#game {
     border: 2px outset grey;
-    margin: 10em auto 0;
+    margin: 0 auto;
     display: block;
   }
 }
