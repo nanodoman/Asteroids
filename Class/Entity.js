@@ -40,7 +40,7 @@ class Entity {
 
   collidesWith(other) {
     const distance = Math.hypot(this.x - other.x, this.y - other.y);
-    this.isColliding = distance < this.radius + other.radius;
+    return (this.isColliding = distance < this.radius + other.radius);
   }
 }
 

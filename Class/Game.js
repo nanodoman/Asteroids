@@ -5,7 +5,7 @@ class Game {
     this.limit = 0;
     this.frame = 0;
     this.state = 'play';
-    this.debug = true;
+    this.debug = false;
     this.then = 0;
     this.ctx = this.getContext();
     this.entities = new Map();
@@ -92,9 +92,22 @@ class Game {
 
   collisionCheck(entity, id) {
     /* TEMP */
-    this.entities.forEach((entity2, index2) => {
-      if (id !== index2) {
-        entity.collidesWith(entity2);
+    this.entities.forEach((otherEntity, otherId) => {
+      if (id === otherId) return;
+
+      const entityType = entity.constructor.name;
+      const otherType = otherEntity.constructor.name;
+      const collision = entity.collidesWith(otherEntity);
+
+      if (!collision) return;
+
+      if (
+        (entityType === 'Asteroid' && otherType === 'Ship') ||
+        (entityType === 'Rocket' && otherType === 'Asteroid') ||
+        (entityType === 'Ship' && otherType === 'Asteroid')
+      ) {
+        this.removeEntity(id);
+        this.removeEntity(otherId);
       }
     });
   }
