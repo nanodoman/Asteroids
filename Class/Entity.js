@@ -5,7 +5,7 @@ class Entity {
     this.radius = radius;
     this.rotation = rotation;
     this.rotationSpeed = 1;
-    this.speed = 1;
+    this.topSpeed = 1;
     this.model = new Path2D(`
       M ${-this.radius} 0
       A ${this.radius} ${this.radius} 0 0 0 ${this.radius} 0
@@ -47,14 +47,14 @@ class Entity {
 class Rocket extends Entity {
   constructor(x, y, rotation) {
     super(x, y, 4, rotation);
-    super.speed = 5;
+    super.topSpeed = 5;
     super.model = new Path2D('M4 0 L2 1 L-2 1 L-4 2 L-4 -2 L-2 -1 L3 -1Z');
     this.ttl = 200;
   }
 
   tick() {
-    const dx = this.speed * Math.cos(this.angle);
-    const dy = this.speed * Math.sin(this.angle);
+    const dx = this.topSpeed * Math.cos(this.angle);
+    const dy = this.topSpeed * Math.sin(this.angle);
 
     this.x += dx;
     this.y += dy;
@@ -95,7 +95,7 @@ class Ship extends Entity {
   constructor(x, y, radius) {
     super(x, y, radius);
     super.rotationSpeed = 2;
-    super.speed = 2;
+    super.topSpeed = 2;
     super.model = new Path2D(`
       M ${this.radius} 0
       L ${-this.radius} ${this.radius}
@@ -103,8 +103,11 @@ class Ship extends Entity {
       L ${-this.radius} ${-this.radius}
       Z
     `);
-
+    this.acceleration = 0.1;
+    this.isthrusting = false;
     this.weaponReload = 0;
+    this.dx = 0;
+    this.dy = 0;
   }
 
   tick() {
@@ -112,21 +115,38 @@ class Ship extends Entity {
     if (this.weaponReload > 0) {
       this.weaponReload--;
     }
+
+    this.x += this.dx;
+    this.y += this.dy;
+
+    const stopTreshold = 0.1;
+    if (!this.isthrusting) {
+      this.dx *= Math.abs(this.dx) <= stopTreshold ? 0 : 0.99;
+      this.dy *= Math.abs(this.dx) <= stopTreshold ? 0 : 0.99;
+    }
   }
 
   controlShip() {
-    if (INPUT.hasKey('ArrowUp')) this.throttle();
+    INPUT.hasKey('ArrowUp') ? this.throttle() : (this.isthrusting = false);
     if (INPUT.hasKey('ArrowLeft')) this.rotate(true);
     if (INPUT.hasKey('ArrowRight')) this.rotate();
     if (INPUT.hasKey('Space')) this.shoot();
   }
 
   throttle() {
-    const dx = this.speed * Math.cos(this.angle);
-    const dy = this.speed * Math.sin(this.angle);
+    this.isthrusting = true;
+    const thrustX = Math.cos(this.angle) * this.acceleration;
+    const thrustY = Math.sin(this.angle) * this.acceleration;
 
-    this.x += dx;
-    this.y += dy;
+    this.dx += thrustX;
+    this.dy += thrustY;
+
+    const speed = Math.hypot(this.dx, this.dy);
+    if (speed > this.topSpeed) {
+      const scale = this.topSpeed / speed;
+      this.dx *= scale;
+      this.dy *= scale;
+    }
   }
 
   rotate(reverse = false) {
