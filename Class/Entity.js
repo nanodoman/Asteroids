@@ -130,13 +130,13 @@ class Ship extends Entity {
   controlShip() {
     if (this.controlSet === 'player1') {
       INPUT.hasKey('ArrowUp') ? this.throttle() : (this.isthrusting = false);
-      if (INPUT.hasKey('ArrowLeft')) this.rotate(true);
-      if (INPUT.hasKey('ArrowRight')) this.rotate();
+      if (INPUT.hasKey('ArrowLeft')) this.rotate(ROTATION.CCW);
+      if (INPUT.hasKey('ArrowRight')) this.rotate(ROTATION.CW);
       if (INPUT.hasKey('Slash')) this.shoot();
     } else if (this.controlSet === 'player2') {
       INPUT.hasKey('KeyW') ? this.throttle() : (this.isthrusting = false);
-      if (INPUT.hasKey('KeyA')) this.rotate(true);
-      if (INPUT.hasKey('KeyD')) this.rotate();
+      if (INPUT.hasKey('KeyA')) this.rotate(ROTATION.CCW);
+      if (INPUT.hasKey('KeyD')) this.rotate(ROTATION.CW);
       if (INPUT.hasKey('KeyF')) this.shoot();
     }
   }
@@ -157,13 +157,13 @@ class Ship extends Entity {
     }
   }
 
-  rotate(reverse = false) {
+  rotate(direction) {
     if (Math.abs(this.rotation) > 180) {
       const sign = Math.sign(this.rotation) * -1;
       this.rotation = 180 * sign;
     }
 
-    this.rotation += this.rotationSpeed * (reverse ? -1 : 1);
+    this.rotation += this.rotationSpeed * direction;
   }
 
   shoot() {
