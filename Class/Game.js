@@ -7,6 +7,7 @@ class Game {
     this.state = 'play';
     this.debug = false;
     this.spawnTreshold = 100;
+      this.spawnLimit = 20;
     this.then = 0;
     this.ctx = this.getContext();
     this.entities = new Map();
@@ -121,7 +122,7 @@ class Game {
   }
 
   spawnAsteroid() {
-    if (this.frame % this.spawnTreshold !== 0) return;
+    if (this.entities.size >= this.spawnLimit || this.frame % this.spawnTreshold !== 0) return;
 
     const x = this.width * 0.5 * (Math.random() - 0.5 >= 0 ? 1 : -1);
     const y = this.height * 0.5 * (Math.random() - 0.5 >= 0 ? 1 : -1);
