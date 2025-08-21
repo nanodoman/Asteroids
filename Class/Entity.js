@@ -48,7 +48,7 @@ class Rocket extends Entity {
   constructor(x, y, rotation) {
     super(x, y, 4, rotation);
     super.topSpeed = 5;
-    super.model = new Path2D('M4 0 L2 1 L-2 1 L-4 2 L-4 -2 L-2 -1 L3 -1Z');
+    super.model = MODEL.ROCKET;
     this.ttl = 200;
   }
 
@@ -67,19 +67,7 @@ class Asteroid extends Entity {
   constructor(x, y, radius) {
     super(x, y, radius);
     super.rotationSpeed = Math.random() - 0.5 * 2;
-    super.model = new Path2D(`
-      M 12 2 
-      L 8 8
-      L 3 13
-      L -6 10
-      L -12 11
-      L -16 4
-      L -12 -6
-      L 0 -14
-      L 7 -9
-      L 14 -7
-      Z
-    `);
+    super.model = MODEL.ASTEROID;
     this.dx = (Math.random() - 0.5) * 4;
     this.dy = (Math.random() - 0.5) * 4;
   }
