@@ -119,7 +119,7 @@ class Ship extends Entity {
     this.x += this.dx;
     this.y += this.dy;
 
-    const stopTreshold = 0.1;
+    const stopTreshold = 0.01;
     if (!this.isthrusting) {
       this.dx *= Math.abs(this.dx) <= stopTreshold ? 0 : 0.99;
       this.dy *= Math.abs(this.dx) <= stopTreshold ? 0 : 0.99;
