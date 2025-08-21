@@ -112,8 +112,7 @@ class Game {
 
       if (
         (entityType === 'Asteroid' && otherType === 'Ship') ||
-        (entityType === 'Rocket' && otherType === 'Asteroid') ||
-        (entityType === 'Ship' && otherType === 'Asteroid')
+        (entityType === 'Rocket' && otherType === 'Asteroid')
       ) {
         this.removeEntity(id);
         this.removeEntity(otherId);
