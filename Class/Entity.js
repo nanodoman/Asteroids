@@ -92,7 +92,7 @@ class Asteroid extends Entity {
 }
 
 class Ship extends Entity {
-  constructor(x, y, radius) {
+  constructor(x, y, radius, controlSet) {
     super(x, y, radius);
     super.rotationSpeed = 2;
     super.topSpeed = 2;
@@ -103,6 +103,7 @@ class Ship extends Entity {
       L ${-this.radius} ${-this.radius}
       Z
     `);
+    this.controlSet = controlSet;
     this.acceleration = 0.1;
     this.isthrusting = false;
     this.weaponReload = 0;
@@ -127,10 +128,17 @@ class Ship extends Entity {
   }
 
   controlShip() {
-    INPUT.hasKey('ArrowUp') ? this.throttle() : (this.isthrusting = false);
-    if (INPUT.hasKey('ArrowLeft')) this.rotate(true);
-    if (INPUT.hasKey('ArrowRight')) this.rotate();
-    if (INPUT.hasKey('Space')) this.shoot();
+    if (this.controlSet === 'player1') {
+      INPUT.hasKey('ArrowUp') ? this.throttle() : (this.isthrusting = false);
+      if (INPUT.hasKey('ArrowLeft')) this.rotate(true);
+      if (INPUT.hasKey('ArrowRight')) this.rotate();
+      if (INPUT.hasKey('Slash')) this.shoot();
+    } else if (this.controlSet === 'player2') {
+      INPUT.hasKey('KeyW') ? this.throttle() : (this.isthrusting = false);
+      if (INPUT.hasKey('KeyA')) this.rotate(true);
+      if (INPUT.hasKey('KeyD')) this.rotate();
+      if (INPUT.hasKey('KeyF')) this.shoot();
+    }
   }
 
   throttle() {

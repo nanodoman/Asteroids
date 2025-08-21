@@ -7,7 +7,7 @@ class Game {
     this.state = 'play';
     this.debug = false;
     this.spawnTreshold = 100;
-      this.spawnLimit = 20;
+    this.spawnLimit = 20;
     this.then = 0;
     this.ctx = this.getContext();
     this.entities = new Map();
@@ -61,7 +61,7 @@ class Game {
   init() {
     this.ctx.transform(1, 0, 0, 1, this.width * 0.5, this.height * 0.5);
     this.loop();
-    this.respawn();
+    this.respawn('player1');
   }
 
   getUId() {
@@ -74,9 +74,9 @@ class Game {
     return id;
   }
 
-  respawn() {
-    if (this.entities.values().some((entity) => entity instanceof Ship)) return;
-    this.addEntity(new Ship(0, 0, 10));
+  respawn(controlSet) {
+    if (this.entities.values().some((entity) => entity instanceof Ship && entity.controlSet === controlSet)) return;
+    this.addEntity(new Ship(0, 0, 10, controlSet));
   }
 
   borderPassCheck(entity) {

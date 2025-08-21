@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="version" content="1.3.0-alpha">
+    <meta name="version" content="1.4.0-alpha" />
     <link rel="stylesheet" href="Style.css" />
     <script src="Class/Entity.js" defer></script>
     <script src="Class/Game.js" defer></script>
@@ -14,11 +14,40 @@
   <body>
     <hgroup align="center">
       <h1>Asteroids</h1>
-      <p>Throttle <kbd>&uarr;</kbd></p>
-      <p>Turn <kbd>&larr;</kbd> <kbd>&rarr;</kbd></p>
-      <p>Shoot <kbd>Space</kbd></p>
-      <p>Respawn <kbd>Enter</kbd></p>
     </hgroup>
+
+    <table align="center" cellspacing="10" width="400">
+      <thead align="center">
+        <tr>
+          <th></th>
+          <th>Player 1</th>
+          <th>Player 2</th>
+        </tr>
+      </thead>
+      <tbody align="center">
+        <tr>
+          <th align="right">Throttle</th>
+          <td><kbd>&uarr;</kbd></td>
+          <td><kbd>W</kbd></td>
+        </tr>
+        <tr>
+          <th align="right">Turn</th>
+          <td><kbd>&larr;</kbd> <kbd>&rarr;</kbd></td>
+          <td><kbd>A</kbd> <kbd>D</kbd></td>
+        </tr>
+        <tr>
+          <th align="right">Shoot</th>
+          <td><kbd>/</kbd></td>
+          <td><kbd>F</kbd></td>
+        </tr>
+        <tr>
+          <th align="right">Respawn</th>
+          <td><kbd>Enter</kbd></td>
+          <td><kbd>Space</kbd></td>
+        </tr>
+      </tbody>
+    </table>
+
     <canvas id="game" width="800" height="600"></canvas>
   </body>
 </html>
