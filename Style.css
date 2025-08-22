@@ -5,6 +5,17 @@
     background-color: black;
   }
 
+  .controls {
+    tr {
+      background-color: color-mix(in srgb, currentColor 10%, #000);
+    }
+
+    th,
+    td {
+      padding: 0.25em 0.5em;
+    }
+  }
+
   kbd {
     display: inline-block;
     min-width: 1em;
