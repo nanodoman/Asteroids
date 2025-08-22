@@ -27,6 +27,8 @@
 
   .score-board {
     display: flex;
+    margin: auto;
+    width: 800px;
     justify-content: space-between;
     line-height: 2;
 
