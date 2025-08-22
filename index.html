@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="version" content="1.6.0-alpha" />
+    <meta name="version" content="1.7.0-alpha" />
     <link rel="stylesheet" href="Style.css" />
     <script src="Class/Entity.js" defer></script>
     <script src="Class/Game.js" defer></script>
@@ -47,6 +47,17 @@
         </tr>
       </tbody>
     </table>
+
+    <div class="score-board">
+      <label>
+        Player 1:
+        <output id="player1-score">0</output>
+      </label>
+      <label dir="rtl">
+        Player 2:
+        <output id="player2-score">0</output>
+      </label>
+    </div>
 
     <canvas id="game" width="800" height="600"></canvas>
   </body>

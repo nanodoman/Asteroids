@@ -1,5 +1,5 @@
 class Entity {
-  constructor(x, y, radius, rotation = 0) {
+  constructor(x, y, radius, rotation = -90) {
     this.x = x;
     this.y = y;
     this.radius = radius;
@@ -45,10 +45,11 @@ class Entity {
 }
 
 class Rocket extends Entity {
-  constructor(x, y, rotation) {
+  constructor(x, y, rotation, owner) {
     super(x, y, 4, rotation);
     super.topSpeed = 5;
     super.model = MODEL.ROCKET;
+    this.owner = owner;
     this.ttl = 200;
   }
 
@@ -156,7 +157,7 @@ class Ship extends Entity {
 
   shoot() {
     if (this.weaponReload !== 0) return;
-    const rocket = new Rocket(this.x, this.y, this.rotation);
+    const rocket = new Rocket(this.x, this.y, this.rotation, this.controlSet);
     this.weaponReload = 25;
     GAME.addEntity(rocket);
   }

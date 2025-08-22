@@ -10,6 +10,10 @@ class Game {
     this.spawnLimit = 20;
     this.then = 0;
     this.ctx = this.getContext();
+    this.scores = {
+      player1: 0,
+      player2: 0,
+    };
     this.entities = new Map();
     this.init();
   }
@@ -109,14 +113,18 @@ class Game {
       const otherType = otherEntity.constructor.name;
       const collision = entity.collidesWith(otherEntity);
 
-      if (!collision) return;
-
-      if (
+      if (!collision) {
+        return;
+      } else if (
         (entityType === 'Asteroid' && otherType === 'Ship') ||
         (entityType === 'Rocket' && otherType === 'Asteroid')
       ) {
         this.removeEntity(id);
         this.removeEntity(otherId);
+
+        if (entity instanceof Rocket) {
+          this.addPoint(entity.owner);
+        }
       }
     });
   }
@@ -127,5 +135,10 @@ class Game {
     const x = this.width * 0.5 * (Math.random() - 0.5 >= 0 ? 1 : -1);
     const y = this.height * 0.5 * (Math.random() - 0.5 >= 0 ? 1 : -1);
     this.addEntity(new Asteroid(x, y, 16));
+  }
+
+  addPoint(player) {
+    this.scores[player] += 10;
+    document.getElementById(`${player}-score`).value = this.scores[player];
   }
 }
