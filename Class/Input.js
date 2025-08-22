@@ -25,10 +25,10 @@ class Input {
       case 'F2':
         GAME ? (GAME.debug = !GAME.debug) : undefined;
         break;
-      case 'Enter':
+      case 'Space':
         GAME.respawn('player1');
         break;
-      case 'Space':
+      case 'Enter':
         GAME.respawn('player2');
         break;
       default:
