@@ -34,7 +34,7 @@ class Game {
 
       this.ctx.clearRect(this.width * -0.5, this.height * -0.5, this.width, this.height);
 
-      this.spawnAsteroid();
+      this.tryEntitySpawn();
 
       this.entities.forEach((entity, id) => {
         entity.tick();
@@ -123,21 +123,34 @@ class Game {
         this.removeEntity(otherId);
 
         if (entity instanceof Rocket) {
-          this.addPoint(entity.owner);
+          this.addPoints(entity.owner);
         }
       }
     });
   }
 
-  spawnAsteroid() {
+  tryEntitySpawn() {
     if (this.entities.size >= this.spawnLimit || this.frame % this.spawnTreshold !== 0) return;
 
     const x = this.width * 0.5 * (Math.random() - 0.5 >= 0 ? 1 : -1);
     const y = this.height * 0.5 * (Math.random() - 0.5 >= 0 ? 1 : -1);
+    const roll = Math.round(Math.random() * 100);
+
+    if (!this.entities.values().some((entity) => entity instanceof Cargo) && roll >= 95) {
+      this.spawnCargo(x, y);
+    } else {
+      this.spawnAsteroid(x, y);
+    }
+  }
+
+  spawnCargo(x, y) {
+    this.addEntity(new Cargo(x, y, 16));
+  }
+  spawnAsteroid(x, y) {
     this.addEntity(new Asteroid(x, y, 16));
   }
 
-  addPoint(player) {
+  addPoints(player) {
     this.scores[player] += 10;
     document.getElementById(`${player}-score`).value = this.scores[player];
   }

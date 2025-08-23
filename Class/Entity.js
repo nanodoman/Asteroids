@@ -80,6 +80,20 @@ class Asteroid extends Entity {
   }
 }
 
+class Cargo extends Entity {
+  constructor(x, y) {
+    super(x, y, 16, Math.round(Math.random() * 360) - 180);
+    super.model = MODEL.CARGO;
+    this.dx = Math.cos(this.angle) * (Math.random() + 1);
+    this.dy = Math.sin(this.angle) * (Math.random() + 1);
+  }
+
+  tick() {
+    this.x += this.dx;
+    this.y += this.dy;
+  }
+}
+
 class Ship extends Entity {
   constructor(x, y, controlSet) {
     super(x, y, 10);
