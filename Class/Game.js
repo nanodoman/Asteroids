@@ -80,7 +80,7 @@ class Game {
 
   respawn(controlSet) {
     if (this.entities.values().some((entity) => entity instanceof Ship && entity.controlSet === controlSet)) return;
-    this.addEntity(new Ship(0, 0, 10, controlSet));
+    this.addEntity(new Ship(0, 0, controlSet));
   }
 
   borderPassCheck(entity) {

@@ -81,17 +81,11 @@ class Asteroid extends Entity {
 }
 
 class Ship extends Entity {
-  constructor(x, y, radius, controlSet) {
-    super(x, y, radius);
+  constructor(x, y, controlSet) {
+    super(x, y, 10);
     super.rotationSpeed = 2;
     super.topSpeed = 2;
-    super.model = new Path2D(`
-      M ${this.radius} 0
-      L ${-this.radius} ${this.radius}
-      L ${this.radius * -0.5} 0
-      L ${-this.radius} ${-this.radius}
-      Z
-    `);
+    super.model = MODEL.SHIP;
     this.controlSet = controlSet;
     this.acceleration = 0.1;
     this.isthrusting = false;
