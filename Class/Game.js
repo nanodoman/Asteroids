@@ -117,13 +117,21 @@ class Game {
         return;
       } else if (
         (entityType === 'Asteroid' && otherType === 'Ship') ||
-        (entityType === 'Rocket' && otherType === 'Asteroid')
+        (entityType === 'Rocket' && otherType === 'Asteroid') ||
+        (entityType === 'Rocket' && otherType === 'Cargo')
       ) {
         this.removeEntity(id);
         this.removeEntity(otherId);
 
         if (entity instanceof Rocket) {
-          this.addPoints(entity.owner);
+          let bonus;
+          let multi;
+
+          if (otherEntity instanceof Cargo) {
+            multi = 5;
+          }
+
+          this.addPoints(entity.owner, bonus, multi);
         }
       }
     });
@@ -150,8 +158,8 @@ class Game {
     this.addEntity(new Asteroid(x, y, 16));
   }
 
-  addPoints(player) {
-    this.scores[player] += 10;
+  addPoints(player, bonus = 0, multi = 1) {
+    this.scores[player] += (10 + bonus) * multi;
     document.getElementById(`${player}-score`).value = this.scores[player];
   }
 }
