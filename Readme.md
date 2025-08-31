@@ -1,7 +1,9 @@
 # Asteroids JS (alpha)
 
-Simple game in style of asteroids.\
+Simple game in style of classic asteroids, made with pure HTML, CSS and JavaScript.\
 Objective is to avoid colliding with random asteroids and shoot them for points.
+
+This projects was created as personal self-growth journey and experiment with semVer.
 
 ![Asteroids JS](assets/asteroids-js.png)
 
@@ -14,35 +16,17 @@ Objective is to avoid colliding with random asteroids and shoot them for points.
 | **Shoot**     | `F`       | `/`       |
 | **Respawn**   | `Space`   | `Enter`   |
 
-##
-
 ## Versioning
 
-This project tries to apply semVer.
+This project tries to apply [Semantic Versioning](https://semver.org/).\
+Current version: `1.9.0-alpha`\
+See [Changelog.md](docs/changelog.md) for project history
 
 # Roadmap
 
-## Done
+See [Roadmap.md](docs/roadmap.md) for detailed list
 
-- [x] Game loop
-- [x] Drawing entities
-- [x] Basic mechanics
-- [x] Ship
-- [x] Asteroids
-- [x] Collisions
-- [x] Shooting
-- [x] Acceleration and innertia
-- [x] Second player (local)
-- [x] Points system
-
-## In progress
-
-- [ ] Refactor classes (private properties with getters/setters)
-- [ ] Respawn penalty (points cost? / game over?)
-
-## Planned
-
+- [x] Basic mechanics and
+- [ ] Menu
+- [ ] Game modes
 - [ ] Ship upgrades
-- [ ] Key mapping
-- [ ] Main menu
-- [ ] Colors

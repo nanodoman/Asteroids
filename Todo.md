@@ -1,4 +1,0 @@
-- debugger widow (display states)
-- fix rocket glitch before disapear
-- (split entities - asteroids/rockets/ships)
-- better collisions
