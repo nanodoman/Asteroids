@@ -13,6 +13,8 @@
 - [ ] split entities to separate files - asteroids/rockets/ships
 - [ ] better collisions
 - [ ] private properties with getters/setters
+- [ ] add JSDocs
+- [ ] error handling
 
 ## Fix
 
