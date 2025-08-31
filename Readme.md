@@ -3,7 +3,7 @@
 Simple game in style of asteroids.\
 Objective is to avoid colliding with random asteroids and shoot them for points.
 
-![Asteroids JS](Asteroids%20JS.png)
+![Asteroids JS](assets/asteroids-js.png)
 
 ## Controls
 
