@@ -1,0 +1,33 @@
+@import './colors.css';
+
+:root {
+  font-family: monospace;
+
+  --ui-cl-primary: var(--color-blue);
+  --ui-cl-background: var(--color-black);
+}
+
+body {
+  color: var(--ui-cl-primary);
+  background-color: var(--ui-cl-background);
+}
+
+.controls {
+  tr {
+    background-color: color-mix(in srgb, currentColor 10%, #000);
+  }
+
+  th,
+  td {
+    padding: 0.25em 0.5em;
+  }
+}
+
+kbd {
+  display: inline-block;
+  min-width: 1em;
+  border: 1px solid currentColor;
+  border-radius: 0.2em;
+  padding: 0.1em 0.2em;
+  text-align: center;
+}
