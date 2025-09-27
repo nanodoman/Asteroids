@@ -2,13 +2,20 @@
 
 :root {
   font-family: monospace;
+  color: var(--ui-cl-primary);
+
+  --cursor: url('../cursor.svg') 0 0, auto;
 
   --ui-cl-primary: var(--color-blue);
   --ui-cl-background: var(--color-black);
 }
 
+*,
+*:hover {
+  cursor: var(--cursor);
+}
+
 body {
-  color: var(--ui-cl-primary);
   background-color: var(--ui-cl-background);
 }
 
