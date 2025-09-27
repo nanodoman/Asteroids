@@ -1,0 +1,21 @@
+@import './styles/base.css' layer(base);
+
+@layer game {
+  .score-board {
+    display: flex;
+    margin: auto;
+    width: 800px;
+    justify-content: space-between;
+    line-height: 2;
+
+    [id$='score'] {
+      font-weight: bolder;
+    }
+  }
+
+  canvas#game {
+    border: 2px outset grey;
+    margin: 0 auto;
+    display: block;
+  }
+}

@@ -1,0 +1,23 @@
+@import './styles/base.css' layer(base);
+@import './styles/ui.css' layer(ui);
+
+menu {
+  list-style: none;
+  width: 200px;
+  margin: unset;
+  margin-inline: auto;
+  padding: unset;
+
+  li {
+    display: flex;
+
+    > * {
+      flex-basis: 100%;
+      text-align: center;
+    }
+
+    &:has(+ li) {
+      margin-bottom: 1rem;
+    }
+  }
+}
