@@ -1,0 +1,18 @@
+button,
+.button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+
+  color: steelblue;
+  border: 1px solid var(--ui-cl-primary);
+  background-color: transparent;
+  border-radius: 0.5rem;
+
+  &:is(a) {
+    text-decoration: none;
+  }
+
+  &:hover {
+    filter: brightness(2) saturate(0.5);
+  }
+}
