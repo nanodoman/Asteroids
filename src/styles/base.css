@@ -4,7 +4,7 @@
   font-family: monospace;
   color: var(--ui-cl-primary);
 
-  --cursor: url('../cursor.svg') 0 0, auto;
+  --cursor: url('../cursor.svg') 2 2, auto;
 
   --ui-cl-primary: var(--color-blue);
   --ui-cl-background: var(--color-black);
