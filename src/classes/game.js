@@ -154,6 +154,7 @@ class Game {
   spawnCargo(x, y) {
     this.addEntity(new Cargo(x, y, 16));
   }
+
   spawnAsteroid(x, y) {
     this.addEntity(new Asteroid(x, y, 16));
   }

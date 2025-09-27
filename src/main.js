@@ -8,8 +8,9 @@ const MODEL = Object.freeze({
 });
 
 const ROTATION = Object.freeze({
-  CW: 1,
   CCW: -1,
+  NONE: 0,
+  CW: 1,
 });
 
 const INPUT = new Input();

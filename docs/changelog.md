@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.0-alpha] - 14.09.2025
+
+### Changed
+
+- Breaking: refactor ship rotation
+- Entity props and behavior - move universal props and methods up to base class
+
 ## [1.9.0-alpha] - 28.08.2025
 
 ### Changed

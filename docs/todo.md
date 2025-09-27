@@ -19,3 +19,4 @@
 ## Fix
 
 - [ ] rocket glitch before disapear
+- [ ] upward movement not affected by innertia

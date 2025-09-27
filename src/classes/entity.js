@@ -2,8 +2,11 @@ class Entity {
   constructor(x, y, radius, rotation = -90) {
     this.x = x;
     this.y = y;
+    this.dx = 0;
+    this.dy = 0;
     this.radius = radius;
     this.rotation = rotation;
+    this.rotationDirection = ROTATION.NONE;
     this.rotationSpeed = 1;
     this.topSpeed = 1;
     this.model = new Path2D(`
@@ -19,7 +22,20 @@ class Entity {
     return (this.rotation * Math.PI) / 180;
   }
 
-  tick() {}
+  tick() {
+    /* move */
+    this.x += this.dx;
+    this.y += this.dy;
+
+    /* rotate */
+    this.rotation += this.rotationSpeed * this.rotationDirection;
+
+    /* limit rotation range */
+    if (Math.abs(this.rotation) > 180) {
+      const sign = Math.sign(this.rotation) * -1;
+      this.rotation = 180 * sign;
+    }
+  }
 
   draw(ctx = GAME.ctx) {
     ctx.save();
@@ -49,17 +65,14 @@ class Rocket extends Entity {
     super(x, y, 4, rotation);
     super.topSpeed = 5;
     super.model = MODEL.ROCKET;
+    super.dx = this.topSpeed * Math.cos(this.angle);
+    super.dy = this.topSpeed * Math.sin(this.angle);
     this.owner = owner;
     this.ttl = 200;
   }
 
   tick() {
-    const dx = this.topSpeed * Math.cos(this.angle);
-    const dy = this.topSpeed * Math.sin(this.angle);
-
-    this.x += dx;
-    this.y += dy;
-
+    super.tick();
     this.ttl--;
   }
 }
@@ -68,15 +81,10 @@ class Asteroid extends Entity {
   constructor(x, y, radius) {
     super(x, y, radius);
     super.rotationSpeed = Math.random() - 0.5 * 2;
+    super.rotationDirection = Math.random() - 0.5 >= 0 ? ROTATION.CW : ROTATION.CCW;
     super.model = MODEL.ASTEROID;
-    this.dx = (Math.random() - 0.5) * 4;
-    this.dy = (Math.random() - 0.5) * 4;
-  }
-
-  tick() {
-    this.rotation += this.rotationSpeed;
-    this.x += this.dx;
-    this.y += this.dy;
+    super.dx = (Math.random() - 0.5) * 4;
+    super.dy = (Math.random() - 0.5) * 4;
   }
 }
 
@@ -86,11 +94,6 @@ class Cargo extends Entity {
     super.model = MODEL.CARGO;
     this.dx = Math.cos(this.angle) * (Math.random() + 1);
     this.dy = Math.sin(this.angle) * (Math.random() + 1);
-  }
-
-  tick() {
-    this.x += this.dx;
-    this.y += this.dy;
   }
 }
 
@@ -104,8 +107,6 @@ class Ship extends Entity {
     this.acceleration = 0.1;
     this.isthrusting = false;
     this.weaponReload = 0;
-    this.dx = 0;
-    this.dy = 0;
   }
 
   tick() {
@@ -114,8 +115,7 @@ class Ship extends Entity {
       this.weaponReload--;
     }
 
-    this.x += this.dx;
-    this.y += this.dy;
+    super.tick();
 
     const stopTreshold = 0.01;
     if (!this.isthrusting) {
@@ -127,13 +127,15 @@ class Ship extends Entity {
   controlShip() {
     if (this.controlSet === 'player1') {
       INPUT.hasKey('KeyW') ? this.throttle() : (this.isthrusting = false);
-      if (INPUT.hasKey('KeyA')) this.rotate(ROTATION.CCW);
-      if (INPUT.hasKey('KeyD')) this.rotate(ROTATION.CW);
+      if (INPUT.hasKey('KeyA')) this.rotationDirection = ROTATION.CCW;
+      else if (INPUT.hasKey('KeyD')) this.rotationDirection = ROTATION.CW;
+      else this.rotationDirection = ROTATION.NONE;
       if (INPUT.hasKey('KeyF')) this.shoot();
     } else if (this.controlSet === 'player2') {
       INPUT.hasKey('ArrowUp') ? this.throttle() : (this.isthrusting = false);
-      if (INPUT.hasKey('ArrowLeft')) this.rotate(ROTATION.CCW);
-      if (INPUT.hasKey('ArrowRight')) this.rotate(ROTATION.CW);
+      if (INPUT.hasKey('ArrowLeft')) this.rotationDirection = ROTATION.CCW;
+      else if (INPUT.hasKey('ArrowRight')) this.rotationDirection = ROTATION.CW;
+      else this.rotationDirection = ROTATION.NONE;
       if (INPUT.hasKey('Slash')) this.shoot();
     }
   }
@@ -152,15 +154,6 @@ class Ship extends Entity {
       this.dx *= scale;
       this.dy *= scale;
     }
-  }
-
-  rotate(direction) {
-    if (Math.abs(this.rotation) > 180) {
-      const sign = Math.sign(this.rotation) * -1;
-      this.rotation = 180 * sign;
-    }
-
-    this.rotation += this.rotationSpeed * direction;
   }
 
   shoot() {
