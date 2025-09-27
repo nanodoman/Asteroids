@@ -3,6 +3,7 @@
 :root {
   font-family: monospace;
   color: var(--ui-cl-primary);
+  user-select: none;
 
   --cursor: url('../cursor.svg') 2 2, auto;
 
