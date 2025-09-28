@@ -20,4 +20,12 @@ menu {
       margin-bottom: 1rem;
     }
   }
+
+  &:has(+ section:target) {
+    display: none;
+  }
+}
+
+section:not(:target) {
+  display: none;
 }

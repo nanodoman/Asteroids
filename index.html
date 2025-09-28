@@ -6,6 +6,20 @@
     <meta name="version" content="1.10.0-alpha" />
     <link rel="stylesheet" href="src/menu.css" />
     <title>Asteroids</title>
+    <script>
+      const routes = Object.freeze(['controls']);
+
+      function switchWiew(viewName) {
+        if (viewName === '') {
+          location.hash = '';
+          history.replaceState(null, null, window.location.pathname);
+        } else if (routes.includes(viewName)) {
+          location.hash = viewName;
+        } else {
+          console.warn(`Wrong route name: ${viewName}`);
+        }
+      }
+    </script>
   </head>
   <body>
     <header>
@@ -20,39 +34,48 @@
         <li><button disabled>Start</button></li>
         <li><a class="button" href="asteroids.html">Co-op</a></li>
         <li><button disabled>Settings</button></li>
+        <li><button onclick="switchWiew('controls')">Controls</button></li>
       </menu>
-    </main>
 
-    <table class="controls" align="center" cellspacing="5" width="400">
-      <thead align="center">
-        <tr>
-          <th></th>
-          <th>Player 1</th>
-          <th>Player 2</th>
-        </tr>
-      </thead>
-      <tbody align="center">
-        <tr>
-          <th align="right">Throttle</th>
-          <td><kbd>W</kbd></td>
-          <td><kbd>&uarr;</kbd></td>
-        </tr>
-        <tr>
-          <th align="right">Turn</th>
-          <td><kbd>A</kbd> <kbd>D</kbd></td>
-          <td><kbd>&larr;</kbd> <kbd>&rarr;</kbd></td>
-        </tr>
-        <tr>
-          <th align="right">Shoot</th>
-          <td><kbd>F</kbd></td>
-          <td><kbd>/</kbd></td>
-        </tr>
-        <tr>
-          <th align="right">Respawn</th>
-          <td><kbd>Space</kbd></td>
-          <td><kbd>Enter</kbd></td>
-        </tr>
-      </tbody>
-    </table>
+      <section id="controls">
+        <hgroup>
+          <h2>Controls</h2>
+
+          <button onclick="switchWiew('')">Back</button>
+        </hgroup>
+
+        <table class="controls-table" align="center" cellspacing="5">
+          <thead align="center">
+            <tr>
+              <th></th>
+              <th>Player 1</th>
+              <th>Player 2</th>
+            </tr>
+          </thead>
+          <tbody align="center">
+            <tr>
+              <th align="right">Throttle</th>
+              <td><kbd>W</kbd></td>
+              <td><kbd>&uarr;</kbd></td>
+            </tr>
+            <tr>
+              <th align="right">Turn</th>
+              <td><kbd>A</kbd> <kbd>D</kbd></td>
+              <td><kbd>&larr;</kbd> <kbd>&rarr;</kbd></td>
+            </tr>
+            <tr>
+              <th align="right">Shoot</th>
+              <td><kbd>F</kbd></td>
+              <td><kbd>/</kbd></td>
+            </tr>
+            <tr>
+              <th align="right">Respawn</th>
+              <td><kbd>Space</kbd></td>
+              <td><kbd>Enter</kbd></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
   </body>
 </html>
