@@ -12,6 +12,8 @@
 - [x] Acceleration and innertia
 - [x] Second player (local)
 - [x] Points system
+- [x] Main menu
+- [x] Pause menu
 
 ## In progress
 
@@ -22,7 +24,5 @@
 
 - [ ] Ship upgrades
 - [ ] Key mapping
-- [ ] Main menu
 - [ ] Colors
-- [ ] Pause menu
 - [ ] Game modes
