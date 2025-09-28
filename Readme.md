@@ -1,5 +1,7 @@
 # Asteroids JS (alpha)
 
+**Play now:** [Live demo on GitHub Pages](https://nanodoman.github.io/Asteroids/)
+
 Simple game in style of classic asteroids, made with pure HTML, CSS and JavaScript.\
 Objective is to avoid colliding with random asteroids and shoot them for points.
 

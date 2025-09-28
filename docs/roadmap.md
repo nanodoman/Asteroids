@@ -26,3 +26,4 @@
 - [ ] Key mapping
 - [ ] Colors
 - [ ] Game modes
+- [ ] Score screen
