@@ -1,11 +1,8 @@
 # Changelog
 
+<!-- Added, Changed, Fixed, Removed -->
+
 ## [2.0.0-alpha] – 28.09.2025
-
-### Changed
-
-- Layout – entire game now fits into a classic 800×600 pixel scene
-- Pages – split game into index screen and gameplay screen
 
 ### Added
 
@@ -18,6 +15,11 @@
 - Controls section – dedicated screen for keybindings
 - About section – includes placeholder Lorem Ipsum content
 
+### Changed
+
+- Layout – entire game now fits into a classic 800×600 pixel scene
+- Pages – split game into index screen and gameplay screen
+
 ## [1.10.0-alpha] – 14.09.2025
 
 ### Changed
@@ -27,10 +29,10 @@
 
 ## [1.9.0-alpha] – 28.08.2025
 
-### Changed
-
-- Breaking: Extended `addPoint(player)` to `addPoints(player, bonus = 0, multi = 1)`
-
 ### Added
 
 - New entity - Cargo ship (50 points for destroying)
+
+### Changed
+
+- Breaking: Extended `addPoint(player)` to `addPoints(player, bonus = 0, multi = 1)`
