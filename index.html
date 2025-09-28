@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="src/menu.css" />
     <title>Asteroids</title>
     <script>
-      const routes = Object.freeze(['controls']);
+      const routes = Object.freeze(['controls', 'about']);
 
       function switchWiew(viewName) {
         if (viewName === '') {
@@ -67,11 +67,18 @@
         </table>
       </section>
 
+      <section id="about">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis consequuntur voluptatem temporibus ea optio
+        harum eligendi reiciendis possimus molestias laborum, id nam in error numquam at obcaecati consectetur ut
+        maxime.
+      </section>
+
       <menu>
         <li><button disabled>Start</button></li>
         <li><a class="button" href="asteroids.html">Co&ndash;op</a></li>
         <li><button disabled>Settings</button></li>
         <li><button onclick="switchWiew('controls')">Controls</button></li>
+        <li><button onclick="switchWiew('about')">About</button></li>
         <li class="back"><button onclick="switchWiew('')">Back</button></li>
       </menu>
     </main>
