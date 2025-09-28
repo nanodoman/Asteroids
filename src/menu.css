@@ -20,29 +20,8 @@ section:target ~ menu li:not(.back) {
   display: none;
 }
 
-menu {
-  list-style: none;
-  width: 200px;
-  margin: unset;
-  margin-inline: auto;
-  padding: unset;
-
-  li {
-    display: flex;
-
-    > * {
-      flex-basis: 100%;
-      text-align: center;
-    }
-
-    &:has(+ li) {
-      margin-bottom: 1rem;
-    }
-  }
-
-  .back {
-    margin-top: 1rem;
-  }
+menu .back {
+  margin-top: 1rem;
 }
 
 footer {

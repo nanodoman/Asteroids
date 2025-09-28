@@ -1,3 +1,24 @@
+menu {
+  list-style: none;
+  width: 200px;
+  margin: unset;
+  margin-inline: auto;
+  padding: unset;
+
+  li {
+    display: flex;
+
+    > * {
+      flex-basis: 100%;
+      text-align: center;
+    }
+
+    &:has(+ li) {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
 button,
 .button {
   display: inline-block;
@@ -19,7 +40,7 @@ button,
   }
 
   &:not(:disabled):hover {
-    filter: brightness(2) saturate(0.5);
+    filter: brightness(1.5) saturate(0.5);
   }
 }
 

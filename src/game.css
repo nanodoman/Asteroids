@@ -1,6 +1,15 @@
 @import './styles/base.css' layer(base);
+@import './styles/ui.css' layer(ui);
 
 @layer game {
+  #pause-menu {
+    position: absolute;
+    inset: 0;
+    color: currentColor;
+    background-color: #000c;
+    outline: none;
+  }
+
   .score-board {
     position: absolute;
     inset: 0 0 auto;

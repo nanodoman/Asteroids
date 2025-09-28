@@ -12,11 +12,17 @@
     <title>Asteroids</title>
   </head>
   <body>
-    <dialog>
+    <dialog id="pause-menu">
       <hgroup align="center">
         <h1>Asteroids</h1>
-        <p>1.10.0-alpha</p>
+        <p><span>1.10.0-alpha</span></p>
+        <h2>Pause</h2>
       </hgroup>
+
+      <menu>
+        <li><button onclick="GAME.togglePause()">Return</button></li>
+        <li><a class="button" href="./index.html">Quit</a></li>
+      </menu>
     </dialog>
 
     <div class="score-board">
