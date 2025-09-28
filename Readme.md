@@ -19,7 +19,7 @@ This projects was created as personal self-growth journey and experiment with se
 ## Versioning
 
 This project tries to apply [Semantic Versioning](https://semver.org/).\
-Current version: `1.10.0-alpha`\
+Current version: `2.0.0-alpha`\
 See [Changelog.md](docs/changelog.md) for project history
 
 # Roadmap
