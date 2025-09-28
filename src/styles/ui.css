@@ -1,6 +1,7 @@
 button,
 .button {
   display: inline-block;
+  width: 10rem;
   padding: 0.5rem 1rem;
   font: unset;
 
@@ -20,4 +21,13 @@ button,
   &:not(:disabled):hover {
     filter: brightness(2) saturate(0.5);
   }
+}
+
+kbd {
+  display: inline-block;
+  min-width: 1rem;
+  border: var(--ui-border-width-thin) solid currentColor;
+  border-radius: 0.2rem;
+  padding: 0.1rem 0.2rem;
+  text-align: center;
 }

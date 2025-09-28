@@ -1,6 +1,10 @@
 @import './styles/base.css' layer(base);
 @import './styles/ui.css' layer(ui);
 
+main {
+  padding-inline: 2rem;
+}
+
 menu {
   list-style: none;
   width: 200px;

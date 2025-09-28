@@ -2,6 +2,7 @@
 
 :root {
   --ui-border-width: 0.25rem;
+  --ui-border-width-thin: 0.1rem;
   --ui-border-radius: 0.5rem;
 
   --ui-cl-primary: var(--color-blue);
@@ -30,7 +31,13 @@ body {
   background-color: var(--ui-cl-background);
 }
 
-.controls {
+hgroup {
+  text-align: center;
+}
+
+.controls-table {
+  width: 100%;
+
   tr {
     background-color: color-mix(in srgb, currentColor 10%, #000);
   }
@@ -39,13 +46,4 @@ body {
   td {
     padding: 0.25em 0.5em;
   }
-}
-
-kbd {
-  display: inline-block;
-  min-width: 1em;
-  border: var(--ui-border-width) solid currentColor;
-  border-radius: 0.2em;
-  padding: 0.1em 0.2em;
-  text-align: center;
 }
