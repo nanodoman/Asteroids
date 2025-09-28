@@ -13,7 +13,11 @@ button,
     text-decoration: none;
   }
 
-  &:hover {
+  &:disabled {
+    filter: grayscale(1);
+  }
+
+  &:not(:disabled):hover {
     filter: brightness(2) saturate(0.5);
   }
 }
