@@ -1,0 +1,49 @@
+@import './colors.css';
+
+:root {
+  --ui-border-width: 0.25rem;
+  --ui-border-width-thin: 0.1rem;
+  --ui-border-radius: 0.5rem;
+
+  --ui-cl-primary: var(--color-blue);
+  --ui-cl-background: var(--color-black);
+
+  font: 666 20px/1.2 monospace, sans-serif;
+  color: var(--ui-cl-primary);
+  -webkit-user-select: none;
+  user-select: none;
+
+  --cursor: url('../cursor.svg') 2 2, auto;
+}
+
+*,
+*:hover {
+  cursor: var(--cursor);
+}
+
+body {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  margin-top: 1em;
+  margin-inline: auto;
+  border: 0.1rem solid white;
+  background-color: var(--ui-cl-background);
+}
+
+hgroup {
+  text-align: center;
+}
+
+.controls-table {
+  width: 100%;
+
+  tr {
+    background-color: color-mix(in srgb, currentColor 10%, #000);
+  }
+
+  th,
+  td {
+    padding: 0.25em 0.5em;
+  }
+}

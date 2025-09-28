@@ -78,6 +78,17 @@ class Game {
     return id;
   }
 
+  togglePause() {
+    const pauseMenu = document.getElementById('pause-menu');
+    if (this.state === 'play') {
+      pauseMenu.show();
+      this.state = 'pause';
+    } else if (this.state === 'pause') {
+      this.state = 'play';
+      pauseMenu.close();
+    }
+  }
+
   respawn(controlSet) {
     if (this.entities.values().some((entity) => entity instanceof Ship && entity.controlSet === controlSet)) return;
     this.addEntity(new Ship(0, 0, controlSet));

@@ -22,6 +22,9 @@ class Input {
 
     /* TEMP */
     switch (e.code) {
+      case 'KeyP':
+        GAME.togglePause();
+        break;
       case 'F2':
         GAME ? (GAME.debug = !GAME.debug) : undefined;
         break;
