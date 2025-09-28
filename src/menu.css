@@ -7,14 +7,17 @@ footer {
   padding-inline: 2rem;
 }
 
-footer {
-  position: absolute;
-  inset: auto 0 0;
+#subheader {
+  text-transform: capitalize;
 }
 
-.version {
-  display: block;
-  text-align: right;
+/* hide inactive sections */
+section:not(:target),
+/* hide BACK option in main menu */
+main:not(:has(:target)) menu li.back,
+/* hide all options except BACK */
+section:target ~ menu li:not(.back) {
+  display: none;
 }
 
 menu {
@@ -37,11 +40,17 @@ menu {
     }
   }
 
-  &:has(+ section:target) {
-    display: none;
+  .back {
+    margin-top: 1rem;
   }
 }
 
-section:not(:target) {
-  display: none;
+footer {
+  position: absolute;
+  inset: auto 0 0;
+
+  .version {
+    display: block;
+    text-align: right;
+  }
 }

@@ -18,6 +18,8 @@
         } else {
           console.warn(`Wrong route name: ${viewName}`);
         }
+
+        document.getElementById('subheader').innerText = location.hash.slice(1);
       }
     </script>
   </head>
@@ -25,24 +27,13 @@
     <header>
       <hgroup>
         <h1>Asteroids</h1>
+
+        <h2 id="subheader"></h2>
       </hgroup>
     </header>
 
     <main>
-      <menu>
-        <li><button disabled>Start</button></li>
-        <li><a class="button" href="asteroids.html">Co-op</a></li>
-        <li><button disabled>Settings</button></li>
-        <li><button onclick="switchWiew('controls')">Controls</button></li>
-      </menu>
-
       <section id="controls">
-        <hgroup>
-          <h2>Controls</h2>
-
-          <button onclick="switchWiew('')">Back</button>
-        </hgroup>
-
         <table class="controls-table" align="center" cellspacing="5">
           <thead align="center">
             <tr>
@@ -75,10 +66,18 @@
           </tbody>
         </table>
       </section>
+
+      <menu>
+        <li><button disabled>Start</button></li>
+        <li><a class="button" href="asteroids.html">Co&ndash;op</a></li>
+        <li><button disabled>Settings</button></li>
+        <li><button onclick="switchWiew('controls')">Controls</button></li>
+        <li class="back"><button onclick="switchWiew('')">Back</button></li>
+      </menu>
     </main>
 
     <footer>
-      <small class="version">v1.10.0-alpha</small>
+      <p><small class="version">v1.10.0-alpha</small></p>
     </footer>
   </body>
 </html>
