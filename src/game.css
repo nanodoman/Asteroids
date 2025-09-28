@@ -2,20 +2,13 @@
 
 @layer game {
   .score-board {
+    position: absolute;
+    inset: 0 0 auto;
+    padding: 0.5rem 1rem;
     display: flex;
-    margin: auto;
-    width: 800px;
     justify-content: space-between;
-    line-height: 2;
-
-    [id$='score'] {
-      font-weight: bolder;
-    }
   }
 
   canvas#game {
-    border: 2px outset grey;
-    margin: 0 auto;
-    display: block;
   }
 }

@@ -1,14 +1,18 @@
 @import './colors.css';
 
 :root {
-  font-family: monospace;
-  color: var(--ui-cl-primary);
-  user-select: none;
-
-  --cursor: url('../cursor.svg') 2 2, auto;
+  --ui-border-width: 0.25rem;
+  --ui-border-radius: 0.5rem;
 
   --ui-cl-primary: var(--color-blue);
   --ui-cl-background: var(--color-black);
+
+  font: 666 20px/1.2 monospace, sans-serif;
+  color: var(--ui-cl-primary);
+  -webkit-user-select: none;
+  user-select: none;
+
+  --cursor: url('../cursor.svg') 2 2, auto;
 }
 
 *,
@@ -17,6 +21,12 @@
 }
 
 body {
+  position: relative;
+  width: 800px;
+  height: 600px;
+  margin-top: 1em;
+  margin-inline: auto;
+  border: 0.1rem solid white;
   background-color: var(--ui-cl-background);
 }
 
@@ -34,7 +44,7 @@ body {
 kbd {
   display: inline-block;
   min-width: 1em;
-  border: 1px solid currentColor;
+  border: var(--ui-border-width) solid currentColor;
   border-radius: 0.2em;
   padding: 0.1em 0.2em;
   text-align: center;
