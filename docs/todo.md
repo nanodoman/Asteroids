@@ -2,10 +2,11 @@
 
 ## Functions
 
-- [ ] game menu
+- [x] game menu
 - [ ] sounds
 - [ ] missions/objectives
 - [ ] game over screen
+- [ ] add global version (configuration) and copy into html
 
 ## Refactor
 
