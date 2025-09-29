@@ -33,7 +33,7 @@ Click to view full size:
 ## Versioning
 
 This project tries to apply [Semantic Versioning](https://semver.org/).\
-Current version: `2.0.1-alpha`\
+Current version: `2.2.0-alpha`\
 See [Changelog.md](docs/changelog.md) for project history
 
 # Roadmap
