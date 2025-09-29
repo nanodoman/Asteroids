@@ -10,6 +10,30 @@
     outline: none;
   }
 
+  .background-paralax {
+    perspective: -10px;
+    display: contents;
+  }
+
+  #background-far,
+  #background-near {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    z-index: -1;
+    animation: drift 90s linear infinite, blink 0.5s alternate infinite;
+  }
+
+  #background-far {
+    --speed-factor: 1;
+    background-image: url(../assets/starfield-far.png);
+  }
+
+  #background-near {
+    --speed-factor: 2;
+    background-image: url(../assets/starfield-near.png);
+  }
+
   .score-board {
     position: absolute;
     inset: 0 0 auto;
@@ -18,6 +42,24 @@
     justify-content: space-between;
   }
 
-  canvas#game {
+  @keyframes drift {
+    0% {
+      background-position: 0 0;
+    }
+
+    100% {
+      background-position: calc(800px * var(--speed-factor)) calc(600px * var(--speed-factor));
+    }
+  }
+
+  @keyframes blink {
+    0%,
+    100% {
+      filter: brightness(1) drop-shadow(0 0 1px white);
+    }
+
+    50% {
+      filter: brightness(1.2) drop-shadow(0 0 3px white);
+    }
   }
 }
