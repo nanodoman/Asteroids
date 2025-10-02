@@ -7,7 +7,7 @@
 - [ ] sounds
 - [ ] missions/objectives
 - [ ] game over screen
-- [ ] add licence
+- [ ] add license
 - [ ] add analitics (count views)?
 - [ ] favicon
 
