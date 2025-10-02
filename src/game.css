@@ -1,5 +1,6 @@
 @import './styles/base.css' layer(base);
 @import './styles/ui.css' layer(ui);
+@import './styles/animationas.css';
 
 @layer game {
   #pause-menu {
@@ -21,7 +22,7 @@
     inset: 0;
     object-fit: cover;
     z-index: -1;
-    animation: drift 90s linear infinite, blink 0.5s alternate infinite;
+    animation: drift 90s ease-in-out alternate infinite, blink 0.5s alternate infinite;
   }
 
   #background-far {
@@ -40,26 +41,5 @@
     padding: 0.5rem 1rem;
     display: flex;
     justify-content: space-between;
-  }
-
-  @keyframes drift {
-    0% {
-      background-position: 0 0;
-    }
-
-    100% {
-      background-position: calc(800px * var(--speed-factor)) calc(600px * var(--speed-factor));
-    }
-  }
-
-  @keyframes blink {
-    0%,
-    100% {
-      filter: brightness(1) drop-shadow(0 0 1px white);
-    }
-
-    50% {
-      filter: brightness(1.2) drop-shadow(0 0 3px white);
-    }
   }
 }

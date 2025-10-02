@@ -1,0 +1,20 @@
+@keyframes drift {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: calc(800px * var(--speed-factor)) calc(600px * var(--speed-factor));
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    filter: brightness(1) drop-shadow(0 0 1px white);
+  }
+
+  50% {
+    filter: brightness(1.2) drop-shadow(0 0 3px white);
+  }
+}
