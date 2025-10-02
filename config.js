@@ -1,4 +1,4 @@
-const VERSION = '2.4.1-alpha';
+const VERSION = '2.5.0-alpha';
 
 console.log(`Asteroids JS – version ${VERSION}`);
 

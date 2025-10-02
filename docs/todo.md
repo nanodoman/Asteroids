@@ -3,10 +3,10 @@
 ## Functions
 
 - [x] game menu
+- [x] add global version (configuration) and copy into html
 - [ ] sounds
 - [ ] missions/objectives
 - [ ] game over screen
-- [ ] add global version (configuration) and copy into html
 
 ## Refactor
 
@@ -16,6 +16,7 @@
 - [ ] private properties with getters/setters
 - [ ] add JSDocs
 - [ ] error handling
+- [ ] refactor router, switch to classes
 
 ## Fix
 
