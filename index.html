@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="version" content="2.3.0-alpha" />
+    <meta name="version" />
     <link rel="stylesheet" href="src/menu.css" />
+    <script src="config.js" defer></script>
     <title>Asteroids</title>
     <script>
       const routes = Object.freeze(['controls', 'about']);
@@ -74,7 +75,10 @@
           inventore eligendi.
         </p>
         <p align="center"><a class="button" href="https://github.com/nanodoman/Asteroids">GitHub Repo &nearr;</a></p>
-        <p align="center"><a class="button" href="https://github.com/nanodoman/Asteroids/blob/main/docs/changelog.md">Changelog &nearr;</a>
+        <p align="center">
+          <a class="button" href="https://github.com/nanodoman/Asteroids/blob/main/docs/changelog.md"
+            >Changelog &nearr;</a
+          >
         </p>
       </section>
 
@@ -89,7 +93,7 @@
     </main>
 
     <footer>
-      <p><small class="version">2.3.0-alpha</small></p>
+      <p align="right" data-version></p>
     </footer>
   </body>
 </html>

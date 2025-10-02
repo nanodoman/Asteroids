@@ -1,5 +1,3 @@
-console.log('Asteroids');
-
 const MODEL = Object.freeze({
   SHIP: new Path2D('M10,0L-6,8L-2,0L-6,-8Z'),
   CARGO: new Path2D('M16,0L11,11L-10,11L-5,0L-10,-12L11,-12Z'),
