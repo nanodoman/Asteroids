@@ -6,23 +6,8 @@
     <meta name="version" />
     <link rel="stylesheet" href="src/menu.css" />
     <script src="config.js" defer></script>
+    <script src="./src/menu.js" defer></script>
     <title>Asteroids</title>
-    <script>
-      const routes = Object.freeze(['controls', 'about']);
-
-      function switchWiew(viewName) {
-        if (viewName === '') {
-          location.hash = '';
-          history.replaceState(null, null, window.location.pathname);
-        } else if (routes.includes(viewName)) {
-          location.hash = viewName;
-        } else {
-          console.warn(`Wrong route name: ${viewName}`);
-        }
-
-        document.getElementById('subheader').innerText = location.hash.slice(1);
-      }
-    </script>
   </head>
   <body>
     <header>
