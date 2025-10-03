@@ -11,12 +11,15 @@
 ## Refactor
 
 - [x] paths/files namings
-- [ ] split entities to separate files - asteroids/rockets/ships
-- [ ] better collisions
+- [ ] decision:
+  - [ ] split entities to separate files - asteroids/rockets/ships
+  - [ ] keep entities in one file and rename it
+- [ ] collisions (shaped collisions instead of circle collisions)
 - [ ] private properties with getters/setters
 - [ ] add JSDocs
 - [ ] error handling
 - [ ] refactor router, switch to classes
+- [ ] refactor game and input, declare as consts and init via initGame()
 
 ## Fix
 
