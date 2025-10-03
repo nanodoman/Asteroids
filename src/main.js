@@ -1,15 +1,53 @@
-const MODEL = Object.freeze({
-  SHIP: new Path2D('M10,0L-6,8L-2,0L-6,-8Z'),
-  CARGO: new Path2D('M16,0L11,11L-10,11L-5,0L-10,-12L11,-12Z'),
-  ASTEROID: new Path2D('M 12 2 L 8 8L 3 13L -6 10L -12 11L -16 4L -12 -6L 0 -14L 7 -9L 14 -7Z'),
-  ROCKET: new Path2D('M4 0 L2 1 L-2 1 L-4 2 L-4 -2 L-2 -1 L3 -1Z'),
-});
+const VERSION = '2.6.0-alpha';
+let INPUT = null;
+let GAME = null;
 
-const ROTATION = Object.freeze({
-  CCW: -1,
-  NONE: 0,
-  CW: 1,
-});
+(function setVersion() {
+  console.log(`Asteroids JS – version ${VERSION}`);
 
-const INPUT = new Input();
-const GAME = new Game();
+  document.querySelector('meta[name="version"]').setAttribute('content', VERSION);
+
+  document.querySelectorAll('[data-version]').forEach((node) => {
+    node.innerText = VERSION;
+  });
+})();
+
+/* Router */
+function routeGuard() {
+  if (!ROUTES.includes(location.hash.slice(1))) {
+    switchWiew('main');
+  }
+
+  setSubheader();
+}
+
+function setSubheader() {
+  document.getElementById('subheader').innerText = location.hash.slice(1);
+}
+
+function switchWiew(viewName) {
+  if (viewName === '' || viewName === 'main') {
+    location.hash = '';
+    history.replaceState(null, null, window.location.pathname);
+  } else if (ROUTES.includes(viewName)) {
+    location.hash = viewName;
+  } else {
+    console.warn(`Wrong route name: ${viewName}`);
+  }
+
+  setSubheader();
+}
+/* Router end */
+
+function initMenu() {
+  window.addEventListener('hashchange', () => {
+    routeGuard();
+  });
+
+  routeGuard();
+}
+
+function initGame() {
+  INPUT = new Input();
+  GAME = new Game();
+}

@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="version" />
     <link rel="stylesheet" href="src/game.css" />
+    <script src="src/classes/enums.js" defer></script>
     <script src="src/classes/entity.js" defer></script>
     <script src="src/classes/game.js" defer></script>
     <script src="src/classes/input.js" defer></script>
     <script src="src/main.js" defer></script>
-    <script src="config.js" defer></script>
     <title>Asteroids</title>
   </head>
-  <body>
+  <body onload="initGame()">
     <dialog id="pause-menu">
       <hgroup align="center">
         <h1>Asteroids</h1>
