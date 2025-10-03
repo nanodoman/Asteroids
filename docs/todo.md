@@ -7,6 +7,8 @@
 - [ ] sounds
 - [ ] missions/objectives
 - [ ] game over screen
+- [ ] add licence
+- [ ] add analitics (count views)?
 
 ## Refactor
 
