@@ -33,7 +33,7 @@ Click to view full size:
 ## Versioning
 
 This project tries to apply [Semantic Versioning](https://semver.org/).\
-Current version: `2.2.0-alpha`\
+Current version: `2.6.0-alpha`\
 See [Changelog.md](docs/changelog.md) for project history
 
 # Roadmap
@@ -44,3 +44,6 @@ See [Roadmap.md](docs/roadmap.md) for detailed list
 - [x] Menu
 - [ ] Game modes
 - [ ] Ship upgrades
+- [ ] Effects
+- [ ] Score screen
+- [ ] Debug Overlay

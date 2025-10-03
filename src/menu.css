@@ -27,9 +27,4 @@ menu .back {
 footer {
   position: absolute;
   inset: auto 0 0;
-
-  .version {
-    display: block;
-    text-align: right;
-  }
 }

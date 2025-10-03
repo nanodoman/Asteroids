@@ -19,6 +19,10 @@
 
 - [ ] Refactor classes (private properties with getters/setters)
 - [ ] Respawn penalty (points cost? / game over?)
+- [ ] Debug overlay
+  - [x] hitboxes
+  - [ ] input
+  - [ ] vectors?
 
 ## Planned
 
@@ -27,3 +31,8 @@
 - [ ] Colors
 - [ ] Game modes
 - [ ] Score screen
+- [ ] Visual effects (on destroy)
+- [ ] Settings (localstorage)
+- [ ] Exploding rockets
+- [ ] UI
+- [ ] Menu controls

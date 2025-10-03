@@ -3,27 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="version" content="2.2.0-alpha" />
+    <meta name="version" />
     <link rel="stylesheet" href="src/menu.css" />
+    <script src="./src/classes/enums.js" defer></script>
+    <script src="./src/main.js" defer></script>
     <title>Asteroids</title>
-    <script>
-      const routes = Object.freeze(['controls', 'about']);
-
-      function switchWiew(viewName) {
-        if (viewName === '') {
-          location.hash = '';
-          history.replaceState(null, null, window.location.pathname);
-        } else if (routes.includes(viewName)) {
-          location.hash = viewName;
-        } else {
-          console.warn(`Wrong route name: ${viewName}`);
-        }
-
-        document.getElementById('subheader').innerText = location.hash.slice(1);
-      }
-    </script>
   </head>
-  <body>
+  <body onload="initMenu()">
     <header>
       <hgroup>
         <h1>Asteroids</h1>
@@ -74,7 +60,10 @@
           inventore eligendi.
         </p>
         <p align="center"><a class="button" href="https://github.com/nanodoman/Asteroids">GitHub Repo &nearr;</a></p>
-        <p align="center"><a class="button" href="https://github.com/nanodoman/Asteroids/blob/main/docs/changelog.md">Changelog &nearr;</a>
+        <p align="center">
+          <a class="button" href="https://github.com/nanodoman/Asteroids/blob/main/docs/changelog.md"
+            >Changelog &nearr;</a
+          >
         </p>
       </section>
 
@@ -84,12 +73,12 @@
         <li><button disabled>Settings</button></li>
         <li><button onclick="switchWiew('controls')">Controls</button></li>
         <li><button onclick="switchWiew('about')">About</button></li>
-        <li class="back"><button onclick="switchWiew('')">Back</button></li>
+        <li class="back"><button onclick="switchWiew('main')">Back</button></li>
       </menu>
     </main>
 
     <footer>
-      <p><small class="version">2.2.0-alpha</small></p>
+      <p align="right" data-version></p>
     </footer>
   </body>
 </html>

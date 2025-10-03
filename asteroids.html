@@ -3,19 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="version" content="2.2.0-alpha" />
+    <meta name="version" />
     <link rel="stylesheet" href="src/game.css" />
+    <script src="src/classes/enums.js" defer></script>
     <script src="src/classes/entity.js" defer></script>
     <script src="src/classes/game.js" defer></script>
     <script src="src/classes/input.js" defer></script>
     <script src="src/main.js" defer></script>
     <title>Asteroids</title>
   </head>
-  <body>
+  <body onload="initGame()">
     <dialog id="pause-menu">
       <hgroup align="center">
         <h1>Asteroids</h1>
-        <p><span>2.2.0-alpha</span></p>
+        <p data-version></p>
         <h2>Pause</h2>
       </hgroup>
 
