@@ -34,5 +34,10 @@
 - [ ] Visual effects (on destroy)
 - [ ] Settings (localstorage)
 - [ ] Exploding rockets
+- [ ] Weapons?
+  - [ ] Plasma
+  - [ ] Lasers
 - [ ] UI
 - [ ] Menu controls
+- [ ] Big Asteroids
+- [ ] Pickups

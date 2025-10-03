@@ -9,6 +9,7 @@
 - [ ] game over screen
 - [ ] add licence
 - [ ] add analitics (count views)?
+- [ ] favicon
 
 ## Refactor
 
@@ -22,6 +23,7 @@
 - [ ] error handling
 - [ ] refactor router, switch to classes
 - [ ] refactor game and input, declare as consts and init via initGame()
+- [ ] game scene into grid layout, delete z-indexes reorder layers (besides dialog)
 
 ## Fix
 
