@@ -14,6 +14,7 @@
 ## Refactor
 
 - [x] paths/files namings
+- [x] game scene into grid layout, delete z-indexes reorder layers (besides dialog)
 - [ ] decision:
   - [ ] split entities to separate files - asteroids/rockets/ships
   - [ ] keep entities in one file and rename it
@@ -23,7 +24,6 @@
 - [ ] error handling
 - [ ] refactor router, switch to classes
 - [ ] refactor game and input, declare as consts and init via initGame()
-- [ ] game scene into grid layout, delete z-indexes reorder layers (besides dialog)
 
 ## Fix
 

@@ -13,6 +13,25 @@
     <title>Asteroids</title>
   </head>
   <body onload="initGame()">
+    <div id="background-far" class="layer"></div>
+    <div id="background-near" class="layer"></div>
+
+    <canvas id="game" class="layer" width="800" height="600"></canvas>
+
+    <div id="ui" class="layer">
+      <div id="score-board">
+        <label>
+          Player 1:
+          <output id="player1-score">0</output>
+        </label>
+
+        <label dir="rtl">
+          Player 2:
+          <output id="player2-score">0</output>
+        </label>
+      </div>
+    </div>
+
     <dialog id="pause-menu">
       <hgroup align="center">
         <h1>Asteroids</h1>
@@ -25,24 +44,5 @@
         <li><a class="button" href="./index.html">Quit</a></li>
       </menu>
     </dialog>
-
-    <div class="background-paralax">
-      <div id="background-far"></div>
-      <div id="background-near"></div>
-    </div>
-
-    <div class="score-board">
-      <label>
-        Player 1:
-        <output id="player1-score">0</output>
-      </label>
-
-      <label dir="rtl">
-        Player 2:
-        <output id="player2-score">0</output>
-      </label>
-    </div>
-
-    <canvas id="game" width="800" height="600"></canvas>
   </body>
 </html>
