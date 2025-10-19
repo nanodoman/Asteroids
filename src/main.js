@@ -1,4 +1,4 @@
-const VERSION = '2.1.0-alpha';
+const VERSION = '2.1.1-alpha';
 let INPUT = null;
 let GAME = null;
 
@@ -37,6 +37,7 @@ function switchWiew(viewName) {
 
   setSubheader();
 }
+
 /* Router end */
 
 function initMenu() {

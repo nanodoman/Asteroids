@@ -9,6 +9,8 @@
 
   #background-far,
   #background-near {
+    z-index: -1;
+    position: relative;
     object-fit: cover;
     animation: drift 90s ease-in-out alternate infinite, blink 0.5s alternate infinite;
   }
