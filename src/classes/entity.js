@@ -84,6 +84,20 @@ class Entity {
   }
 }
 
+class Pickup extends Entity {
+  constructor(x, y) {
+    super(x, y, 8, undefined, ENTITY_TYPES.MISCELLANEOUS);
+    super.rotationDirection = ROTATION.CW;
+    super.model = MODEL.PICKUP;
+    this.ttl = 200;
+  }
+
+  tick() {
+    super.tick();
+    this.ttl--;
+  }
+}
+
 class Rocket extends Entity {
   constructor(x, y, rotation, owner) {
     super(x, y, 4, rotation, ENTITY_TYPES.ROCKET);

@@ -140,6 +140,7 @@ class Game {
 
           if (otherEntity instanceof Cargo) {
             multi = 5;
+            this.addEntity(new Pickup(otherEntity.x, otherEntity.y));
           }
 
           this.addPoints(entity.owner, bonus, multi);
