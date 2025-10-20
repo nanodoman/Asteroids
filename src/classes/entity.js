@@ -123,7 +123,7 @@ class Cargo extends Entity {
 
 class Ship extends Entity {
   constructor(x, y, controlSet) {
-    super(x, y, 10, undefined, ENTITY_TYPES.PLAYER);
+    super(x, y, 16, undefined, ENTITY_TYPES.PLAYER);
     super.rotationSpeed = 2;
     super.topSpeed = 2;
     super.model = MODEL.SHIP;
