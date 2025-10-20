@@ -55,7 +55,7 @@ class Entity {
         ctx.fillStyle = '#999';
         break;
       case ENTITY_TYPES.PLAYER:
-        ctx.fillStyle = '#4682b4';
+        ctx.fillStyle = this?.controlSet === 'player2' ? '#20b2aa' : '#4682b4';
         break;
       case ENTITY_TYPES.ADVERSARY:
         ctx.fillStyle = '#dc143c';
@@ -126,7 +126,7 @@ class Ship extends Entity {
     super(x, y, 16, undefined, ENTITY_TYPES.PLAYER);
     super.rotationSpeed = 2;
     super.topSpeed = 2;
-    super.model = MODEL.SHIP;
+    super.model = controlSet === 'player2' ? MODEL.SHIP_A : MODEL.SHIP;
     this.controlSet = controlSet;
     this.acceleration = 0.1;
     this.isthrusting = false;
