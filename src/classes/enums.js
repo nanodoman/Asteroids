@@ -2,6 +2,16 @@
 const ROUTES = Object.freeze(['main', /* 'start', */ 'settings', 'controls', 'about']);
 
 /* Game */
+const ENTITY_TYPES = Object.freeze({
+  DEAFULT: 'default',
+  NEUTRAL: 'neutral',
+  PLAYER: 'player',
+  ADVERSARY: 'adversary',
+  MISCELLANEOUS: 'miscellaneous',
+  OBJECTIVE: 'objective',
+  ROCKET: 'rocket',
+});
+
 const MODEL = Object.freeze({
   SHIP: new Path2D('M15,0 L-8,13 L-12,9 L-8,4 L-10,0 L-8,-4 L-12,-9 L-8,-13Z'),
   CARGO: new Path2D('M16,0 L11,11 L-10,11 L-5,0 L-10,-12 L11,-12Z'),
