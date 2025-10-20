@@ -58,18 +58,16 @@
           Simple game in style of classic asteroids, made with pure HTML, CSS and JavaScript. Objective is to avoid
           colliding with random asteroids and shoot them for points.
         </p>
-        <p align="center"><a class="button" href="https://github.com/nanodoman/Asteroids">GitHub Repo &nearr;</a></p>
-        <p align="center">
-          <a class="button" href="https://github.com/nanodoman/Asteroids/blob/main/docs/changelog.md"
-            >Changelog &nearr;</a
-          >
-        </p>
+        <menu>
+          <li><a class="button" href="https://github.com/nanodoman/Asteroids">GitHub Repo &nearr;</a></li>
+          <li><a class="button" href="https://github.com/nanodoman/Asteroids/blob/main/docs/changelog.md">Changelog &nearr;</a></li>
+        </menu>
       </section>
 
       <menu>
-        <li><button disabled>Start</button></li>
+        <li><button onclick="switchWiew('start')" disabled>Start</button></li>
         <li><a class="button" href="asteroids.html">Co&ndash;op</a></li>
-        <li><button disabled>Settings</button></li>
+        <li><button onclick="switchWiew('settings')" disabled>Settings</button></li>
         <li><button onclick="switchWiew('controls')">Controls</button></li>
         <li><button onclick="switchWiew('about')">About</button></li>
         <li class="back"><button onclick="switchWiew('main')">Back</button></li>
