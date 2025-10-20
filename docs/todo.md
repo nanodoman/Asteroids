@@ -10,6 +10,10 @@
 - [ ] add license
 - [ ] add analitics (count views)?
 - [ ] favicon
+- [ ] canvas layers
+  - [ ] sort entities/separated collections
+  - [ ] player ships allways on top (draw last)
+- [ ] handle redirects (links) in router (a > button)
 
 ## Refactor
 
@@ -27,5 +31,6 @@
 
 ## Fix
 
+- [x] canvas behind backgrounds (caused by new stacking context from css animation)
 - [ ] rocket glitch before disapear
 - [ ] upward movement not affected by innertia
