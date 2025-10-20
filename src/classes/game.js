@@ -7,7 +7,7 @@ class Game {
     this.state = 'play';
     this.debug = false;
     this.spawnTreshold = 100;
-    this.spawnLimit = 20;
+    this.spawnLimit = 10;
     this.then = 0;
     this.ctx = this.getContext();
     this.scores = {
@@ -150,7 +150,8 @@ class Game {
   }
 
   tryEntitySpawn() {
-    if (this.entities.size >= this.spawnLimit || this.frame % this.spawnTreshold !== 0) return;
+    const asteroidsCount = [...this.entities.values()].filter((e) => e instanceof Asteroid).length;
+    if (asteroidsCount >= this.spawnLimit || this.frame % this.spawnTreshold !== 0) return;
 
     const x = this.width * 0.5 * (Math.random() - 0.5 >= 0 ? 1 : -1);
     const y = this.height * 0.5 * (Math.random() - 0.5 >= 0 ? 1 : -1);
