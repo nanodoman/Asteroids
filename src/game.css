@@ -3,23 +3,15 @@
 @import './styles/animationas.css';
 
 @layer game {
-  #pause-menu {
-    inset: 0;
-    color: currentColor;
-    background-color: #000c;
-    outline: none;
-  }
-
-  .background-paralax {
-    display: contents;
+  body {
+    display: grid;
   }
 
   #background-far,
   #background-near {
-    position: absolute;
-    inset: 0;
-    object-fit: cover;
     z-index: -1;
+    position: relative;
+    object-fit: cover;
     animation: drift 90s ease-in-out alternate infinite, blink 0.5s alternate infinite;
   }
 
@@ -33,11 +25,26 @@
     background-image: url(../assets/starfield-near.png);
   }
 
-  .score-board {
+  #ui {
+    display: grid;
+  }
+
+  #score-board {
     position: absolute;
     inset: 0 0 auto;
     padding: 0.5rem 1rem;
     display: flex;
     justify-content: space-between;
+  }
+
+  #pause-menu {
+    inset: 0;
+    color: currentColor;
+    background-color: #000c;
+    outline: none;
+  }
+
+  .layer {
+    grid-area: 1 / 1;
   }
 }
