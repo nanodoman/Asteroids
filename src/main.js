@@ -51,3 +51,7 @@ function initGame() {
   INPUT = new Input();
   GAME = new Game();
 }
+
+function runInWindow() {
+  window.open('index.html', 'self', `popup, innerWidth = 900, innerHeight = 666`);
+}

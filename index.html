@@ -19,6 +19,13 @@
     </header>
 
     <main>
+      <section id="settings">
+        <menu>
+          <li><button type="button" onclick="runInWindow()">Run in window</button></li>
+          <li><button type="button" disabled>Clear data</button></li>
+        </menu>
+      </section>
+
       <section id="controls">
         <table class="controls-table" align="center" cellspacing="5">
           <thead align="center">
@@ -67,7 +74,7 @@
       <menu>
         <li><button onclick="switchWiew('start')" disabled>Start</button></li>
         <li><a class="button" href="asteroids.html">Free Play</a></li>
-        <li><button onclick="switchWiew('settings')" disabled>Settings</button></li>
+        <li><button onclick="switchWiew('settings')">Settings</button></li>
         <li><button onclick="switchWiew('controls')">Controls</button></li>
         <li><button onclick="switchWiew('about')">About</button></li>
         <li class="back"><button onclick="switchWiew('main')">Back</button></li>
