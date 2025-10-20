@@ -2,6 +2,17 @@
 
 <!-- Added, Changed, Fixed, Removed -->
 
+## [2.2.0-alpha] – 20.10.2025
+
+### Added
+
+- "Run in window" – new button for opening the game in a separate window
+
+### Changed
+
+- About description – replaced "lorem ipsum" placeholder with a simple description
+- "Co-op" to "Free play" – button text better communicates intent
+
 ## [2.1.0-alpha] – 03.10.2025
 
 ### Added

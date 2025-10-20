@@ -7,13 +7,18 @@
 - [ ] sounds
 - [ ] missions/objectives
 - [ ] game over screen
-- [ ] add licence
+- [ ] add license
 - [ ] add analitics (count views)?
 - [ ] favicon
+- [ ] canvas layers
+  - [ ] sort entities/separated collections
+  - [ ] player ships allways on top (draw last)
+- [ ] handle redirects (links) in router (a > button)
 
 ## Refactor
 
 - [x] paths/files namings
+- [x] game scene into grid layout, delete z-indexes reorder layers (besides dialog)
 - [ ] decision:
   - [ ] split entities to separate files - asteroids/rockets/ships
   - [ ] keep entities in one file and rename it
@@ -23,9 +28,9 @@
 - [ ] error handling
 - [ ] refactor router, switch to classes
 - [ ] refactor game and input, declare as consts and init via initGame()
-- [ ] game scene into grid layout, delete z-indexes reorder layers (besides dialog)
 
 ## Fix
 
 - [ ] rocket glitch before disapear
 - [ ] upward movement not affected by innertia
+- [ ] canvas behind backgrounds (caused by new stacking context from css animation)
