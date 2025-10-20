@@ -140,7 +140,7 @@ class Ship extends Entity {
     super(x, y, 16, undefined, ENTITY_TYPES.PLAYER);
     super.rotationSpeed = 2;
     super.topSpeed = 2;
-    super.model = MODEL.SHIP;
+    super.model = Math.random() >= 0.5 ? MODEL.SHIP : MODEL.SHIP_A;
     this.controlSet = controlSet;
     this.acceleration = 0.1;
     this.isthrusting = false;
