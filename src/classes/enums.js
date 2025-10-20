@@ -1,5 +1,5 @@
 /* Menu */
-const ROUTES = Object.freeze(['main', 'settings', 'controls', 'about']);
+const ROUTES = Object.freeze(['main', /* 'start', */ 'settings', 'controls', 'about']);
 
 /* Game */
 const MODEL = Object.freeze({
