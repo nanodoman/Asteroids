@@ -52,3 +52,24 @@ function initGame() {
   INPUT = new Input();
   GAME = new Game();
 }
+
+function runInWindow() {
+  window.open(
+    'index.html',
+    'self',
+    `
+    popup,
+    left = 500,
+    top = 100,
+    innerWidth = 860,
+    innerHeight = 666
+    location = false,
+    toolbar = false,
+    menubar = false,
+    resizable = false,
+    scrollbars = false,
+    status = false,
+    `
+  );
+  // close();
+}
