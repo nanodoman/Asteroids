@@ -39,9 +39,9 @@
 
   #pause-menu {
     inset: 0;
-    color: currentColor;
-    background-color: #000c;
-    outline: none;
+    color: inherit;
+    background-color: var(--ui-cl-backdrop);
+    border-color: var(--ui-cl-primary);
   }
 
   .layer {

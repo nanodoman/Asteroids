@@ -6,14 +6,28 @@
   --ui-border-radius: 0.5rem;
 
   --ui-cl-primary: var(--color-blue);
+  --ui-lc-primary-neon: color-mix(in srgb, var(--ui-cl-primary), white 80%);
+
+  --ui-cl-surface: color-mix(in srgb, var(--ui-cl-primary) 10%, #000);
   --ui-cl-background: var(--color-black);
 
-  font: 666 20px/1.2 monospace, sans-serif;
-  color: var(--ui-cl-primary);
-  -webkit-user-select: none;
-  user-select: none;
+  --ui-cl-backdrop: #000000cc;
 
   --cursor: url('../../assets/cursor.svg') 2 2, auto;
+
+  --neon-box: 0 0 0.5rem var(--ui-cl-primary);
+
+  --neon-text: 0.1ch -0.1ch 0.2ch var(--ui-cl-primary), 0.1ch 0.1ch 0.2ch var(--ui-cl-primary),
+    -0.1ch 0.1ch 0.2ch var(--ui-cl-primary), -0.1ch -0.1ch 0.2ch var(--ui-cl-primary), 0 0 0.5ch var(--ui-cl-primary),
+    0 0 1ch var(--ui-cl-primary), 0 0 2ch var(--ui-cl-primary);
+
+  /* font */
+  font: 666 20px/1.2 monospace, sans-serif;
+  color: var(--ui-lc-primary-neon);
+  text-shadow: var(--neon-text);
+
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 *,
@@ -27,7 +41,7 @@ body {
   height: 600px;
   margin-top: 1em;
   margin-inline: auto;
-  border: 0.1rem solid white;
+  border: 0.1rem solid var(--ui-cl-primary);
   background-color: var(--ui-cl-background);
 }
 
@@ -36,14 +50,20 @@ hgroup {
 }
 
 .controls-table {
+  text-shadow: none;
   width: 100%;
 
   tr {
-    background-color: color-mix(in srgb, currentColor 10%, #000);
+    background-color: var(--ui-cl-surface);
   }
 
   th,
   td {
     padding: 0.25em 0.5em;
   }
+}
+
+.plain-text {
+  color: var(--ui-cl-primary);
+  text-shadow: none;
 }

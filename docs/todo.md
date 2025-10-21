@@ -14,6 +14,8 @@
   - [ ] sort entities/separated collections
   - [ ] player ships allways on top (draw last)
 - [ ] handle redirects (links) in router (a > button)
+- [ ] border images
+- [ ] score incrementing-couter effect ()
 
 ## Refactor
 
