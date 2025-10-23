@@ -36,6 +36,8 @@ class Game {
 
       this.tryEntitySpawn();
 
+      this.ui();
+
       this.entities.forEach((entity, id) => {
         entity.tick();
         this.borderPassCheck(entity);
@@ -174,6 +176,20 @@ class Game {
 
   addPoints(player, bonus = 0, multi = 1) {
     this.scores[player] += (10 + bonus) * multi;
-    document.getElementById(`${player}-score`).value = this.scores[player];
+    // document.getElementById(`${player}-score`).value = this.scores[player];
+  }
+
+  ui() {
+    const currentDisplayP1 = +document.getElementById(`player1-score`).value;
+    if (currentDisplayP1 < this.scores.player1) {
+      console.log(currentDisplayP1);
+      document.getElementById(`player1-score`).value = currentDisplayP1 + 1;
+    }
+    
+    const currentDisplayP2 = +document.getElementById(`player2-score`).value;
+    if (currentDisplayP2 < this.scores.player2) {
+      console.log(currentDisplayP2);
+      document.getElementById(`player2-score`).value = currentDisplayP2 + 1;
+    }
   }
 }
