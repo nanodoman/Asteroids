@@ -26,17 +26,24 @@ button,
   padding: 0.5rem 1rem;
   font: unset;
 
-  color: var(--ui-cl-primary);
-  border: var(--ui-border-width) solid var(--ui-cl-primary);
-  background-color: transparent;
+  color: inherit;
+  text-shadow: inherit;
+  outline: 1px solid var(--ui-lc-primary-neon);
+  outline-offset: -3px;
+  border: 4px solid var(--ui-cl-primary);
+  background-color: var(--ui-cl-background);
   border-radius: var(--ui-border-radius);
+  box-shadow: var(--neon-box);
 
   &:is(a) {
     text-decoration: none;
   }
 
   &:disabled {
-    filter: grayscale(1);
+    border-color: transparent;
+    text-shadow: none;
+    box-shadow: none;
+    filter: grayscale(1) brightness(0.5);
   }
 
   &:not(:disabled):hover {
@@ -47,7 +54,7 @@ button,
 kbd {
   display: inline-block;
   min-width: 1rem;
-  border: var(--ui-border-width-thin) solid currentColor;
+  border: var(--ui-border-width-thin) solid var(--ui-cl-primary);
   border-radius: 0.2rem;
   padding: 0.1rem 0.2rem;
   text-align: center;

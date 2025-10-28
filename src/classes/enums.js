@@ -2,11 +2,23 @@
 const ROUTES = Object.freeze(['main', /* 'start', */ 'settings', 'controls', 'about']);
 
 /* Game */
+const ENTITY_TYPES = Object.freeze({
+  DEAFULT: 'default',
+  NEUTRAL: 'neutral',
+  PLAYER: 'player',
+  ADVERSARY: 'adversary',
+  MISCELLANEOUS: 'miscellaneous',
+  OBJECTIVE: 'objective',
+  WEAPON: 'weapon',
+});
+
 const MODEL = Object.freeze({
-  SHIP: new Path2D('M10,0L-6,8L-2,0L-6,-8Z'),
-  CARGO: new Path2D('M16,0L11,11L-10,11L-5,0L-10,-12L11,-12Z'),
-  ASTEROID: new Path2D('M 12 2 L 8 8L 3 13L -6 10L -12 11L -16 4L -12 -6L 0 -14L 7 -9L 14 -7Z'),
-  ROCKET: new Path2D('M4 0 L2 1 L-2 1 L-4 2 L-4 -2 L-2 -1 L3 -1Z'),
+  SHIP: new Path2D('M15,0 L-8,13 L-12,9 L-8,4 L-10,0 L-8,-4 L-12,-9 L-8,-13Z'),
+  SHIP_A: new Path2D('M15,0 L10,2 L0,4 L6,14 L-2,12 L-8,6 L-15,2 L-8,0 L-15,-2 L-8,-6 L-2,-12 L6,-14 L0,-4 10,-2Z'),
+  CARGO: new Path2D('M16,0 L11,11 L-10,11 L-5,0 L-10,-12 L11,-12Z'),
+  ASTEROID: new Path2D('M12,2 L8,8 L3,13 L-6,10 L-12,11 L-16,4 L-12,-6 L0,-14 L7,-9 L14,-7Z'),
+  ROCKET: new Path2D('M4,0 L2,1 L-2,1 L-4,2 L-4,-2 L-2,-1 L3,-1Z'),
+  PICKUP: new Path2D('M8,0 L4,7 L-4,7 L-8,0 L-4,-7 L4,-7Z'),
 });
 
 const ROTATION = Object.freeze({

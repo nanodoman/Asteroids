@@ -1,5 +1,5 @@
 class Entity {
-  constructor(x, y, radius, rotation = -90) {
+  constructor(x, y, radius = 8, rotation = -90, type = ENTITY_TYPES.DEAFULT) {
     this.x = x;
     this.y = y;
     this.dx = 0;
@@ -15,6 +15,7 @@ class Entity {
       M ${-this.radius} 0
       A ${this.radius} ${this.radius} 0 0 1 ${this.radius} 0
     `);
+    this.type = type;
     this.isColliding = false;
   }
 
@@ -42,14 +43,37 @@ class Entity {
     if (GAME.debug === true) {
       const hitbox = new Path2D();
       hitbox.arc(this.x, this.y, this.radius, 0, Math.PI * 4);
-      ctx.strokeStyle = this.isColliding ? '#f7b' : '#48b';
+      ctx.strokeStyle = this.isColliding ? '#ff69b4' : '#fff';
       ctx.stroke(hitbox);
     }
     ctx.translate(this.x, this.y);
     ctx.rotate(this.angle);
-    ctx.strokeStyle = '#fff';
+    ctx.strokeStyle = '#000';
     ctx.stroke(this.model);
-    ctx.fillStyle = '#6666';
+    switch (this.type) {
+      case ENTITY_TYPES.NEUTRAL:
+        ctx.fillStyle = '#999';
+        break;
+      case ENTITY_TYPES.PLAYER:
+        ctx.fillStyle = this?.controlSet === 'player2' ? '#20b2aa' : '#4682b4';
+        break;
+      case ENTITY_TYPES.ADVERSARY:
+        ctx.fillStyle = '#dc143c';
+        break;
+      case ENTITY_TYPES.MISCELLANEOUS:
+        ctx.fillStyle = '#f0e68c';
+        break;
+      case ENTITY_TYPES.OBJECTIVE:
+        ctx.fillStyle = '#ffff33';
+        break;
+      case ENTITY_TYPES.WEAPON:
+        ctx.fillStyle = '#8a2be2';
+        break;
+      case ENTITY_TYPES.DEAFULT:
+      default:
+        ctx.fillStyle = '#2a3439';
+        break;
+    }
     ctx.fill(this.model);
     ctx.restore();
   }
@@ -60,9 +84,17 @@ class Entity {
   }
 }
 
+class Pickup extends Entity {
+  constructor(x, y) {
+    super(x, y, 8, undefined, ENTITY_TYPES.MISCELLANEOUS);
+    super.rotationDirection = ROTATION.CW;
+    super.model = MODEL.PICKUP;
+  }
+}
+
 class Rocket extends Entity {
   constructor(x, y, rotation, owner) {
-    super(x, y, 4, rotation);
+    super(x, y, 4, rotation, ENTITY_TYPES.WEAPON);
     super.topSpeed = 5;
     super.model = MODEL.ROCKET;
     super.dx = this.topSpeed * Math.cos(this.angle);
@@ -90,7 +122,7 @@ class Asteroid extends Entity {
 
 class Cargo extends Entity {
   constructor(x, y) {
-    super(x, y, 16, Math.round(Math.random() * 360) - 180);
+    super(x, y, 16, Math.round(Math.random() * 360) - 180, ENTITY_TYPES.NEUTRAL);
     super.model = MODEL.CARGO;
     this.dx = Math.cos(this.angle) * (Math.random() + 1);
     this.dy = Math.sin(this.angle) * (Math.random() + 1);
@@ -99,10 +131,10 @@ class Cargo extends Entity {
 
 class Ship extends Entity {
   constructor(x, y, controlSet) {
-    super(x, y, 10);
+    super(x, y, 16, undefined, ENTITY_TYPES.PLAYER);
     super.rotationSpeed = 2;
     super.topSpeed = 2;
-    super.model = MODEL.SHIP;
+    super.model = controlSet === 'player2' ? MODEL.SHIP_A : MODEL.SHIP;
     this.controlSet = controlSet;
     this.acceleration = 0.1;
     this.isthrusting = false;

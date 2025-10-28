@@ -7,7 +7,7 @@ class Game {
     this.state = 'play';
     this.debug = false;
     this.spawnTreshold = 100;
-    this.spawnLimit = 20;
+    this.spawnLimit = 10;
     this.then = 0;
     this.ctx = this.getContext();
     this.scores = {
@@ -35,6 +35,8 @@ class Game {
       this.ctx.clearRect(this.width * -0.5, this.height * -0.5, this.width, this.height);
 
       this.tryEntitySpawn();
+
+      this.ui();
 
       this.entities.forEach((entity, id) => {
         entity.tick();
@@ -140,6 +142,7 @@ class Game {
 
           if (otherEntity instanceof Cargo) {
             multi = 5;
+            this.addEntity(new Pickup(otherEntity.x, otherEntity.y));
           }
 
           this.addPoints(entity.owner, bonus, multi);
@@ -149,7 +152,8 @@ class Game {
   }
 
   tryEntitySpawn() {
-    if (this.entities.size >= this.spawnLimit || this.frame % this.spawnTreshold !== 0) return;
+    const asteroidsCount = [...this.entities.values()].filter((e) => e instanceof Asteroid).length;
+    if (asteroidsCount >= this.spawnLimit || this.frame % this.spawnTreshold !== 0) return;
 
     const x = this.width * 0.5 * (Math.random() - 0.5 >= 0 ? 1 : -1);
     const y = this.height * 0.5 * (Math.random() - 0.5 >= 0 ? 1 : -1);
@@ -172,6 +176,18 @@ class Game {
 
   addPoints(player, bonus = 0, multi = 1) {
     this.scores[player] += (10 + bonus) * multi;
-    document.getElementById(`${player}-score`).value = this.scores[player];
+    // document.getElementById(`${player}-score`).value = this.scores[player];
+  }
+
+  ui() {
+    const currentDisplayP1 = +document.getElementById(`player1-score`).value;
+    if (currentDisplayP1 < this.scores.player1) {
+      document.getElementById(`player1-score`).value = currentDisplayP1 + 1;
+    }
+    
+    const currentDisplayP2 = +document.getElementById(`player2-score`).value;
+    if (currentDisplayP2 < this.scores.player2) {
+      document.getElementById(`player2-score`).value = currentDisplayP2 + 1;
+    }
   }
 }
