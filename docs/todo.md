@@ -16,6 +16,7 @@
 - [ ] handle redirects (links) in router (a > button)
 - [ ] border images
 - [ ] score incrementing-couter effect ()
+- [ ] dynamic gradient backgroud layer
 
 ## Refactor
 

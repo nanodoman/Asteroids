@@ -182,13 +182,11 @@ class Game {
   ui() {
     const currentDisplayP1 = +document.getElementById(`player1-score`).value;
     if (currentDisplayP1 < this.scores.player1) {
-      console.log(currentDisplayP1);
       document.getElementById(`player1-score`).value = currentDisplayP1 + 1;
     }
     
     const currentDisplayP2 = +document.getElementById(`player2-score`).value;
     if (currentDisplayP2 < this.scores.player2) {
-      console.log(currentDisplayP2);
       document.getElementById(`player2-score`).value = currentDisplayP2 + 1;
     }
   }
