@@ -1,4 +1,4 @@
-const VERSION = '2.2.0-alpha';
+const VERSION = '2.3.0-alpha';
 let INPUT = null;
 let GAME = null;
 
